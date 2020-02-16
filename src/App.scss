@@ -1,0 +1,6 @@
+@import "styles/variables";
+
+.app {
+  background: linear-gradient(to bottom, $bgcolor, $bgcolor-tint);
+  height: 100vh;
+}
