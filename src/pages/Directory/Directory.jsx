@@ -2,9 +2,9 @@ import React, { useState, useEffect, useContext, Fragment } from "react";
 
 import DefaultLayout from "../../layout/DefaultLayout/DefaultLayout";
 import AppContext from "../../context/appContext";
+import { Video, Folder } from "../../components/Item";
 
 import css from "./Directory.module.scss";
-import { Video, Folder } from "../../components/Item";
 
 const Directory = () => {
   const { dirarea } = css;
