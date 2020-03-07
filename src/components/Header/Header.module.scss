@@ -21,3 +21,42 @@
 .appDesc {
   color: $color3;
 }
+
+.userInfo {
+  display: flex;
+  align-items: center;
+}
+
+.userIntro {
+  text-align: right;
+  margin-right: 16px;
+}
+
+.userName {
+  color: white;
+  font-size: 30px;
+}
+
+.hello {
+  color: $color3;
+}
+
+.userImage {
+  width: 76px;
+  height: 76px;
+  border-radius: 38px;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.gateway {
+  color: $color3;
+  cursor: pointer;
+  &:focus {
+    color: white;
+  }
+  &:hover {
+    color: white;
+    text-decoration: underline;
+  }
+}
