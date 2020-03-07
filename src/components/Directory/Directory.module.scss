@@ -1,0 +1,64 @@
+@use "../../styles/variables" as *;
+
+.directory {
+  flex: 1;
+  padding: 32px 10%;
+  background-color: $color1;
+}
+
+.dirPath {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.dirNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchInput {
+  padding: 5px 5px 5px 0;
+  background-color: $color1;
+  border: none;
+  color: $color3;
+  border-bottom: 1px solid $color3;
+  font-family: "Titillium Web";
+  width: 200px;
+  &:focus {
+    outline: none;
+    color: white;
+    border-bottom-color: white;
+  }
+  &:hover {
+    border-bottom-color: white;
+  }
+}
+
+.backbutton {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+  margin-right: 16px;
+  background-color: $color1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  color: $color3;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: color 0.2s, box-shadow 0.2s;
+
+  &:focus {
+    color: white;
+    outline: none;
+  }
+  &:hover {
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+}
