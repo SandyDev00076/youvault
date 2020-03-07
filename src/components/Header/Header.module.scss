@@ -1,0 +1,23 @@
+@use "../../styles/variables" as *;
+
+.header {
+  padding: 32px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $color2;
+}
+
+.appIntro {
+}
+
+.appName {
+  font-size: 60px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 2px $color1;
+}
+
+.appDesc {
+  color: $color3;
+}

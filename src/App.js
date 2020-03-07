@@ -2,7 +2,8 @@ import React from "react";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { AppProvider } from "./context/appContext";
-import Directory from "./pages/Directory";
+import Header from "./components/Header";
+import Directory from "./components/Directory";
 
 import "./App.scss";
 
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="app">
       <AppProvider>
+        <Header />
         <Router>
           <Route exact path="/">
             <Directory />
