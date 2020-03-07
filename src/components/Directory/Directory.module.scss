@@ -59,6 +59,51 @@
   }
   &:hover {
     color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.items {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  margin: 32px 0;
+}
+
+.video {
+  cursor: pointer;
+  border: none;
+  background-color: $color1;
+  font-family: "Titillium Web";
+
+  .videoImage {
+    width: 100%;
+    border-radius: 10px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    margin-bottom: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .videoName {
+    text-align: center;
+    color: $color3;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+
+  &:hover,
+  &:focus {
+    .videoImage {
+      opacity: 1;
+    }
+
+    .videoName {
+      color: white;
+    }
+  }
+
+  &:focus {
+    outline: none;
   }
 }

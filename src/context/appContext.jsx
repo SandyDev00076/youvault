@@ -15,7 +15,7 @@ export const AppProvider = ({ children }) => {
     },
     {
       id: "someid1",
-      name: "Coca Cola Tu",
+      name: "Jis Din Tum",
       created: new Date().toUTCString(),
       link: "https://www.youtube.com/watch?v=zD2sQ8f6BMc",
       parent: "/"
