@@ -54,7 +54,12 @@ const Video = ({ video }) => {
 
 /* component for Folder */
 const Folder = ({ folder }) => {
-  return <div className={css.folder}></div>;
+  return (
+    <button className={css.folder}>
+      <div className={css.folderName}>{folder.name}</div>
+      <div className={css.folderVol}>{folder.videos} videos</div>
+    </button>
+  );
 };
 
 const Directory = () => {
@@ -69,11 +74,28 @@ const Directory = () => {
         </div>
         <SearchField />
       </div>
-      <div className={css.items}>
-        {dir.map((item, index) => (
-          <Item key={index} item={item} />
-        ))}
-      </div>
+      {/* Video Section */}
+      <section className={css.dirSection}>
+        <div className={css.sectionHeading}>Folders</div>
+        <div className={css.items}>
+          {dir
+            .filter(item => item.videos)
+            .map((item, index) => (
+              <Item key={index} item={item} />
+            ))}
+        </div>
+      </section>
+      {/* Video Section */}
+      <section className={css.dirSection}>
+        <div className={css.sectionHeading}>Videos</div>
+        <div className={css.items}>
+          {dir
+            .filter(item => item.link)
+            .map((item, index) => (
+              <Item key={index} item={item} />
+            ))}
+        </div>
+      </section>
     </section>
   );
 };

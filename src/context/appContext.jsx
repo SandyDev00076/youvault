@@ -19,6 +19,13 @@ export const AppProvider = ({ children }) => {
       created: new Date().toUTCString(),
       link: "https://www.youtube.com/watch?v=zD2sQ8f6BMc",
       parent: "/"
+    },
+    {
+      id: "someid2",
+      name: "Sections",
+      created: new Date().toUTCString(),
+      videos: 3,
+      parent: "/"
     }
   ]);
   const config = {

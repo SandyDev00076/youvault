@@ -15,7 +15,12 @@
 .dirNav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.dirSection {
+  margin-bottom: 32px;
 }
 
 .searchInput {
@@ -25,7 +30,8 @@
   color: $color3;
   border-bottom: 1px solid $color3;
   font-family: "Titillium Web";
-  width: 200px;
+  font-size: 1rem;
+  width: 250px;
   &:focus {
     outline: none;
     color: white;
@@ -67,11 +73,18 @@
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  margin: 32px 0;
+  margin: 16px 0;
+}
+
+.sectionHeading {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
 }
 
 .video {
   cursor: pointer;
+  padding: 0;
   border: none;
   background-color: $color1;
   font-family: "Titillium Web";
@@ -79,10 +92,10 @@
   .videoImage {
     width: 100%;
     border-radius: 10px;
-    opacity: 0.8;
-    transition: opacity 0.3s;
+    opacity: 0.9;
+    transition: opacity 0.3s, box-shadow 0.3s;
     margin-bottom: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 
   .videoName {
@@ -96,11 +109,41 @@
   &:focus {
     .videoImage {
       opacity: 1;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     }
 
     .videoName {
       color: white;
     }
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.folder {
+  padding: 16px;
+  cursor: pointer;
+  background-color: $color1;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  text-align: left;
+
+  .folderName {
+    font-size: 2rem;
+    color: white;
+    text-shadow: 0 0 2px $color1;
+  }
+
+  .folderVol {
+    color: $color3;
+  }
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   }
 
   &:focus {
