@@ -62,6 +62,7 @@ const Folder = ({ folder }) => {
   );
 };
 
+/* Directory Component */
 const Directory = () => {
   const { dir } = useContext(AppContext);
 
@@ -74,28 +75,43 @@ const Directory = () => {
         </div>
         <SearchField />
       </div>
+      {/* Folder Section */}
+      {dir.filter(item => item.videos).length > 0 && (
+        <section className={css.dirSection}>
+          <div className={css.sectionHeading}>Folders</div>
+          <div className={css.items}>
+            {dir
+              .filter(item => item.videos)
+              .map((item, index) => (
+                <Item key={index} item={item} />
+              ))}
+          </div>
+        </section>
+      )}
       {/* Video Section */}
-      <section className={css.dirSection}>
-        <div className={css.sectionHeading}>Folders</div>
-        <div className={css.items}>
-          {dir
-            .filter(item => item.videos)
-            .map((item, index) => (
-              <Item key={index} item={item} />
-            ))}
-        </div>
-      </section>
-      {/* Video Section */}
-      <section className={css.dirSection}>
-        <div className={css.sectionHeading}>Videos</div>
-        <div className={css.items}>
-          {dir
-            .filter(item => item.link)
-            .map((item, index) => (
-              <Item key={index} item={item} />
-            ))}
-        </div>
-      </section>
+      {dir.filter(item => item.link).length > 0 && (
+        <section className={css.dirSection}>
+          <div className={css.sectionHeading}>Videos</div>
+          <div className={css.items}>
+            {dir
+              .filter(item => item.link)
+              .map((item, index) => (
+                <Item key={index} item={item} />
+              ))}
+          </div>
+        </section>
+      )}
+      {dir.length === 0 && (
+        <section className={css.noItems}>
+          <div className={css.emptyState}>
+            <FontAwesomeIcon className={css.iconForNothing} icon="ghost" />
+            <div className={css.msgForNothing}>There's no one here.</div>
+            <div className={css.msg2ForNothing}>
+              Try adding a video / folder first.
+            </div>
+          </div>
+        </section>
+      )}
     </section>
   );
 };
