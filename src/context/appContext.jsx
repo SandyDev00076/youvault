@@ -5,34 +5,37 @@ import { createContext } from "react";
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
+  const [currentDir, setCurrentDir] = useState("/");
   const [dir, setDir] = useState([
-    // {
-    //   id: "someid",
-    //   name: "Test Video",
-    //   created: new Date().toUTCString(),
-    //   link: "https://www.youtube.com/watch?v=NFnb3PnoEgw",
-    //   parent: "/"
-    // },
-    // {
-    //   id: "someid1",
-    //   name: "Jis Din Tum",
-    //   created: new Date().toUTCString(),
-    //   link: "https://www.youtube.com/watch?v=zD2sQ8f6BMc",
-    //   parent: "/"
-    // },
-    // {
-    //   id: "someid2",
-    //   name: "Sections",
-    //   created: new Date().toUTCString(),
-    //   videos: 3,
-    //   parent: "/"
-    // }
+    {
+      id: "someid",
+      name: "Test Video",
+      created: new Date().toUTCString(),
+      link: "https://www.youtube.com/watch?v=NFnb3PnoEgw",
+      parent: "/"
+    },
+    {
+      id: "someid1",
+      name: "Jis Din Tum",
+      created: new Date().toUTCString(),
+      link: "https://www.youtube.com/watch?v=zD2sQ8f6BMc",
+      parent: "/"
+    },
+    {
+      id: "someid2",
+      name: "Sections",
+      created: new Date().toUTCString(),
+      videos: 3,
+      parent: "/"
+    }
   ]);
   const config = {
     // getters
     dir,
+    currentDir,
     //setters
-    setDir
+    setDir,
+    setCurrentDir
   };
   return <AppContext.Provider value={config}>{children}</AppContext.Provider>;
 };
