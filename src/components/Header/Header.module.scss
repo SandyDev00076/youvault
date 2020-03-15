@@ -1,64 +1,26 @@
 @use "../../styles/variables" as *;
 
 .header {
-  padding: 32px 10%;
+  padding: 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: $color2;
-}
 
-.appIntro {
-}
+  .navLinks {
+    display: flex;
+    align-items: center;
 
-.appName {
-  font-size: 60px;
-  color: white;
-  font-weight: bold;
-  text-shadow: 0 0 2px $color1;
-}
+    .navLink {
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 48px;
 
-.appDesc {
-  color: $color3;
-}
-
-.userInfo {
-  display: flex;
-  align-items: center;
-}
-
-.userIntro {
-  text-align: right;
-  margin-right: 16px;
-}
-
-.userName {
-  color: white;
-  font-size: 30px;
-  cursor: default;
-}
-
-.hello {
-  color: $color3;
-  cursor: default;
-}
-
-.userImage {
-  width: 76px;
-  height: 76px;
-  border-radius: 38px;
-  object-fit: cover;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.gateway {
-  color: $color3;
-  cursor: pointer;
-  &:focus {
-    color: white;
-  }
-  &:hover {
-    color: white;
-    text-decoration: underline;
+      &:hover,
+      &:focus {
+        color: $primary;
+        text-decoration: underline;
+        outline: none;
+      }
+    }
   }
 }

@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="app">
       <AppProvider>
-        <Header />
         <Router>
+          <Header />
           <Route exact path="/">
             <Directory />
           </Route>

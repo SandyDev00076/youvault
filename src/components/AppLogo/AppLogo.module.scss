@@ -1,0 +1,23 @@
+@use '../../styles/variables' as *;
+
+.appLogo {
+  display: flex;
+  align-items: center;
+  .appName {
+    font-size: 1.5rem;
+    margin: 0 0 0 10px;
+    color: $primary;
+  }
+
+  .logoIcon {
+    height: 36px;
+    width: 36px;
+    border-radius: 18px;
+    background-color: $primary;
+    color: $secondary;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
