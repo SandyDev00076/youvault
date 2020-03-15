@@ -10,8 +10,12 @@ const Header = () => {
     <section className={css.header}>
       <AppLogo />
       <div className={css.navLinks}>
+        {/* TODO: Add page links for each navLink */}
         <Link to="" className={css.navLink}>
           About Us
+        </Link>
+        <Link to="" className={css.navLink}>
+          Policies
         </Link>
         <Link to="" className={css.navLink}>
           Support
