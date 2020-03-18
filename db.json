@@ -5,6 +5,7 @@
       "type": "folder",
       "name": "Test Folder",
       "description": "A folder created to test the structure",
+      "date_created": "25/01/2020",
       "items": []
     },
     {
@@ -12,6 +13,7 @@
       "type": "video",
       "name": "Intro",
       "description": "A video that will show nothing",
+      "date_created": "25/01/2020",
       "url": "https://www.youtube.com/watch?v=RDJW0CMWUa0"
     },
     {
@@ -19,6 +21,7 @@
       "type": "article",
       "name": "Best Fonts",
       "description": "Page that will show me best fonts",
+      "date_created": "25/01/2020",
       "url": "https://www.awwwards.com/20-best-web-fonts-from-google-web-fonts-and-font-face.html"
     }
   ]

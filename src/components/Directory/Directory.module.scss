@@ -3,4 +3,17 @@
 .directory {
   flex: 1;
   padding: 32px;
+
+  .actionBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dirSection {
+    display: grid;
+    gap: 32px;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
 }
