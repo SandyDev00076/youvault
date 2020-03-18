@@ -16,6 +16,7 @@ $article-color: #c6527a;
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 10px;
+    opacity: 0.7;
 
     .itemType {
       text-transform: uppercase;
@@ -23,37 +24,87 @@ $article-color: #c6527a;
       padding-bottom: 5px;
       border-bottom: 2px solid $primary;
       width: max-content;
-      transition: border-bottom-color 0.3s;
+      transition: border-bottom-color 0.3s, color 0.3s;
 
       .itemTypeIcon {
         margin-left: 8px;
         font-size: 0.9rem;
-        transition: color 0.3s;
-      }
-
-      .folder {
-        @extend .itemTypeIcon;
-        color: $folder-color;
-      }
-
-      .video {
-        @extend .itemTypeIcon;
-        color: $video-color;
-      }
-
-      .article {
-        @extend .itemTypeIcon;
-        color: $article-color;
       }
     }
 
+    .folder {
+      @extend .itemType;
+      color: $folder-color;
+      border-bottom-color: lighten($color: $folder-color, $amount: 0);
+    }
+
+    .video {
+      @extend .itemType;
+      color: $video-color;
+      border-bottom-color: lighten($color: $video-color, $amount: 0);
+    }
+
+    .article {
+      @extend .itemType;
+      color: $article-color;
+      border-bottom-color: lighten($color: $article-color, $amount: 0);
+    }
+
     .dateCreated {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
   }
 
   .itemName {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: $primary-darker;
+    transition: color 0.3s;
+  }
+
+  /* Folder classes */
+  .folderDesc {
+    margin-bottom: 10px;
+  }
+
+  .folderFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+
+    .folderButtonPanel {
+      display: flex;
+      align-items: center;
+
+      .folderBtn {
+        margin-right: 10px;
+        color: $primary;
+        opacity: 0.6;
+        transition: color 0.3s, opacity 0.3s;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .folderItemCount {
+      color: $primary;
+      opacity: 0.6;
+      transition: color 0.3s;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+
+      & > div {
+        margin-left: 10px;
+      }
+
+      .folderItemCountIcon {
+        margin: 0 0 0 5px;
+      }
+    }
   }
 
   &:hover,
@@ -64,8 +115,20 @@ $article-color: #c6527a;
 
     .itemType {
       border-bottom-color: white;
+      color: white;
+    }
 
-      .itemTypeIcon {
+    .itemName {
+      color: white;
+    }
+
+    .folderFooter {
+      .folderButtonPanel {
+        .folderBtn {
+          color: white;
+        }
+      }
+      .folderItemCount {
         color: white;
       }
     }
@@ -73,5 +136,6 @@ $article-color: #c6527a;
 
   &:focus {
     background-color: $primary-light;
+    outline: none;
   }
 }

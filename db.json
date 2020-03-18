@@ -4,9 +4,18 @@
       "id": "almanac-1",
       "type": "folder",
       "name": "Test Folder",
-      "description": "A folder created to test the structure",
+      "description": "A folder created to test the structure.",
       "date_created": "25/01/2020",
-      "items": []
+      "items": [
+        {
+          "id": "almanac-4",
+          "type": "video",
+          "name": "Test Video",
+          "description": "A test video that will show nothing",
+          "date_created": "25/01/2020",
+          "url": "https://www.youtube.com/watch?v=RDJW0CMWUa0"
+        }
+      ]
     },
     {
       "id": "almanac-2",
