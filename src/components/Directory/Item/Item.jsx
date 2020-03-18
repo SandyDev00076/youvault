@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import yt from "youtube-thumbnail";
 
 import css from "./Item.module.scss";
 
@@ -27,6 +28,7 @@ function deleteItem() {
   console.log("deleting the item");
 }
 
+/* Folder Content */
 const FolderContent = ({ item }) => {
   const { description, items } = item;
 
@@ -63,15 +65,15 @@ const FolderContent = ({ item }) => {
         <div className={css.folderDesc}>{description}</div>
       )}
       <div className={css.folderFooter}>
-        <div className={css.folderButtonPanel}>
+        <div className={css.btnPanel}>
           <FontAwesomeIcon
-            icon="external-link-alt"
-            className={css.folderBtn}
+            icon="arrow-alt-circle-right"
+            className={css.panelBtn}
             onClick={openFolder}
           />
           <FontAwesomeIcon
             icon="trash"
-            className={css.folderBtn}
+            className={css.panelBtn}
             onClick={deleteItem}
           />
         </div>
@@ -100,6 +102,60 @@ const FolderContent = ({ item }) => {
   );
 };
 
+/* Video Content */
+const VideoContent = ({ item }) => {
+  const { name, url, description } = item;
+
+  function openVideo() {
+    window.open(url, "_blank");
+  }
+
+  function shareVideo() {
+    // TODO: Code to share video
+    console.log("Sharing the video");
+  }
+
+  return (
+    <>
+      {description.length !== 0 ? (
+        <div className={css.videoDetails}>
+          <img
+            src={yt(url).default.url}
+            alt={name}
+            className={css.videoThumbnail}
+            onClick={openVideo}
+          />
+          <div className={css.videoDesc}>{description}</div>
+        </div>
+      ) : (
+        <img
+          src={yt(url).medium.url}
+          alt={name}
+          className={`${css.videoThumbnail} ${css.onlyVideoThumbnail}`}
+          onClick={openVideo}
+        />
+      )}
+      <div className={css.btnPanel}>
+        <FontAwesomeIcon
+          icon="external-link-alt"
+          className={css.panelBtn}
+          onClick={openVideo}
+        />
+        <FontAwesomeIcon
+          icon="trash"
+          className={css.panelBtn}
+          onClick={deleteItem}
+        />
+        <FontAwesomeIcon
+          icon="share-alt"
+          className={css.panelBtn}
+          onClick={shareVideo}
+        />
+      </div>
+    </>
+  );
+};
+
 const Item = ({ item }) => {
   const { type, date_created, name } = item;
 
@@ -111,6 +167,8 @@ const Item = ({ item }) => {
     switch (type) {
       case "folder":
         return <FolderContent item={item} />;
+      case "video":
+        return <VideoContent item={item} />;
       default:
         return <div></div>;
     }

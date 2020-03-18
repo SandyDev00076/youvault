@@ -6,7 +6,9 @@ import {
   faVideo,
   faPencilAlt,
   faExternalLinkAlt,
-  faTrash
+  faTrash,
+  faShareAlt,
+  faArrowAltCircleRight
 } from "@fortawesome/free-solid-svg-icons";
 
 function initializeIcons() {
@@ -17,7 +19,9 @@ function initializeIcons() {
     faVideo,
     faPencilAlt,
     faExternalLinkAlt,
-    faTrash
+    faTrash,
+    faShareAlt,
+    faArrowAltCircleRight
   );
 }
 
