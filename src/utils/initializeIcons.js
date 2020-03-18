@@ -3,11 +3,12 @@ import {
   faArrowLeft,
   faFolder,
   faGhost,
-  faVideo
+  faVideo,
+  faPencilAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 function initializeIcons() {
-  library.add(faArrowLeft, faFolder, faGhost, faVideo);
+  library.add(faArrowLeft, faFolder, faGhost, faVideo, faPencilAlt);
 }
 
 export default initializeIcons;

@@ -1,4 +1,7 @@
 @use '../../../styles/variables' as *;
+$folder-color: #806c51;
+$video-color: #c4302b;
+$article-color: #c6527a;
 
 .item {
   padding: 16px;
@@ -21,6 +24,27 @@
       border-bottom: 2px solid $primary;
       width: max-content;
       transition: border-bottom-color 0.3s;
+
+      .itemTypeIcon {
+        margin-left: 8px;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+      }
+
+      .folder {
+        @extend .itemTypeIcon;
+        color: $folder-color;
+      }
+
+      .video {
+        @extend .itemTypeIcon;
+        color: $video-color;
+      }
+
+      .article {
+        @extend .itemTypeIcon;
+        color: $article-color;
+      }
     }
 
     .dateCreated {
@@ -40,6 +64,10 @@
 
     .itemType {
       border-bottom-color: white;
+
+      .itemTypeIcon {
+        color: white;
+      }
     }
   }
 
