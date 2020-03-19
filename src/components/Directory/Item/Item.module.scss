@@ -143,6 +143,9 @@ $article-color: #c6527a;
   margin: 0 0 0 5px;
 }
 
+.stackedImages {
+}
+
 /* Video classes */
 .videoDetails {
   display: grid;
@@ -158,10 +161,6 @@ $article-color: #c6527a;
   border: 1px solid $primary;
   transition: opacity 0.3s, border-color 0.3s;
   cursor: pointer;
-}
-
-.onlyVideoThumbnail {
-  width: 60%;
 }
 
 .videoDesc {

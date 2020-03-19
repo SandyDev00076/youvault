@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import yt from "youtube-thumbnail";
@@ -30,7 +30,7 @@ function deleteItem() {
 
 /* Folder Content */
 const FolderContent = ({ item }) => {
-  const { description, items } = item;
+  const { description, items, name } = item;
 
   let itemCount = {
     article: 0,
@@ -61,9 +61,9 @@ const FolderContent = ({ item }) => {
 
   return (
     <>
-      {description.length !== 0 && (
-        <div className={css.folderDesc}>{description}</div>
-      )}
+      <div className={css.folderDesc}>
+        {description ?? "No description for this item."}
+      </div>
       <div className={css.folderFooter}>
         <div className={css.btnPanel}>
           <FontAwesomeIcon
@@ -117,24 +117,17 @@ const VideoContent = ({ item }) => {
 
   return (
     <>
-      {description.length !== 0 ? (
-        <div className={css.videoDetails}>
-          <img
-            src={yt(url).default.url}
-            alt={name}
-            className={css.videoThumbnail}
-            onClick={openVideo}
-          />
-          <div className={css.videoDesc}>{description}</div>
-        </div>
-      ) : (
+      <div className={css.videoDetails}>
         <img
-          src={yt(url).medium.url}
+          src={yt(url).default.url}
           alt={name}
-          className={`${css.videoThumbnail} ${css.onlyVideoThumbnail}`}
+          className={css.videoThumbnail}
           onClick={openVideo}
         />
-      )}
+        <div className={css.videoDesc}>
+          {description ?? "No description for this item."}
+        </div>
+      </div>
       <div className={css.btnPanel}>
         <FontAwesomeIcon
           icon="external-link-alt"
@@ -156,6 +149,53 @@ const VideoContent = ({ item }) => {
   );
 };
 
+/* Article Content */
+const ArticleContent = ({ item }) => {
+  const { name, url, description } = item;
+
+  function openArticle() {
+    window.open(url, "_blank");
+  }
+
+  function shareArticle() {
+    // TODO: Code to share the article
+    console.log("Sharing the article");
+  }
+
+  return (
+    <>
+      <div className={css.videoDetails}>
+        <img
+          src={"http://placehold.jp/120x90.png"}
+          alt={name}
+          className={css.videoThumbnail}
+          onClick={openArticle}
+        />
+        <div className={css.videoDesc}>
+          {description ?? "No description for this item."}
+        </div>
+      </div>
+      <div className={css.btnPanel}>
+        <FontAwesomeIcon
+          icon="external-link-alt"
+          className={css.panelBtn}
+          onClick={openArticle}
+        />
+        <FontAwesomeIcon
+          icon="trash"
+          className={css.panelBtn}
+          onClick={deleteItem}
+        />
+        <FontAwesomeIcon
+          icon="share-alt"
+          className={css.panelBtn}
+          onClick={shareArticle}
+        />
+      </div>
+    </>
+  );
+};
+
 const Item = ({ item }) => {
   const { type, date_created, name } = item;
 
@@ -169,6 +209,8 @@ const Item = ({ item }) => {
         return <FolderContent item={item} />;
       case "video":
         return <VideoContent item={item} />;
+      case "article":
+        return <ArticleContent item={item} />;
       default:
         return <div></div>;
     }

@@ -13,7 +13,7 @@
   .dirSection {
     display: grid;
     gap: 32px;
-    align-items: center;
+    align-items: flex-end;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
