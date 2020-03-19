@@ -8,7 +8,8 @@ import {
   faExternalLinkAlt,
   faTrash,
   faShareAlt,
-  faArrowAltCircleRight
+  faArrowAltCircleRight,
+  faPhotoVideo
 } from "@fortawesome/free-solid-svg-icons";
 
 function initializeIcons() {
@@ -21,7 +22,8 @@ function initializeIcons() {
     faExternalLinkAlt,
     faTrash,
     faShareAlt,
-    faArrowAltCircleRight
+    faArrowAltCircleRight,
+    faPhotoVideo
   );
 }
 

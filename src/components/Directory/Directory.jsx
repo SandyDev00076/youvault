@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import AppContext from "../../context/appContext";
-import yt from "youtube-thumbnail";
 import { getDirectory } from "../../api/dirApi";
+import Item from "./Item";
 
 import css from "./Directory.module.scss";
-import Item from "./Item";
 
 /* Directory Component */
 const Directory = () => {
@@ -37,7 +35,7 @@ const Directory = () => {
       <section>
         <h2 className={css.sectionLabel}>
           Files
-          <FontAwesomeIcon icon="folder" className={css.sectionIcon} />
+          <FontAwesomeIcon icon="photo-video" className={css.sectionIcon} />
         </h2>
         <section className={css.mediaSection}>
           {dirList
