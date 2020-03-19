@@ -21,10 +21,31 @@ const Directory = () => {
       <section className={css.actionBar}>
         <div className={css.path}></div>
       </section>
-      <section className={css.dirSection}>
-        {dirList.map(item => (
-          <Item item={item} key={item.id} />
-        ))}
+      <section>
+        <h2 className={css.sectionLabel}>
+          Folders
+          <FontAwesomeIcon icon="folder" className={css.sectionIcon} />
+        </h2>
+        <section className={css.folderSection}>
+          {dirList
+            .filter(item => item.type === "folder")
+            .map(item => (
+              <Item item={item} key={item.id} />
+            ))}
+        </section>
+      </section>
+      <section>
+        <h2 className={css.sectionLabel}>
+          Files
+          <FontAwesomeIcon icon="folder" className={css.sectionIcon} />
+        </h2>
+        <section className={css.mediaSection}>
+          {dirList
+            .filter(item => item.type !== "folder")
+            .map(item => (
+              <Item item={item} key={item.id} />
+            ))}
+        </section>
       </section>
     </section>
   );

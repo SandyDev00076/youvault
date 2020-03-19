@@ -40,6 +40,14 @@
       "description": "Tips on becoming a UI designer.",
       "date_created": "25/01/2020",
       "url": "https://www.youtube.com/watch?v=VxcOPuHhpp4"
+    },
+    {
+      "id": "almanac-6",
+      "type": "folder",
+      "name": "Things That I like",
+      "description": "Just some Random videos",
+      "date_created": "25/01/2020",
+      "items": []
     }
   ]
 }

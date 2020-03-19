@@ -11,11 +11,6 @@ const iconMappingTable = {
     class: "article",
     icon: "pencil-alt"
   },
-  folder: {
-    label: "Folder",
-    class: "folder",
-    icon: "folder"
-  },
   video: {
     label: "Video",
     class: "video",
@@ -62,7 +57,7 @@ const FolderContent = ({ item }) => {
   return (
     <>
       <div className={css.folderDesc}>
-        {description ?? "No description for this item."}
+        {description ?? "No description available for the folder."}
       </div>
       <div className={css.folderFooter}>
         <div className={css.btnPanel}>
@@ -125,7 +120,7 @@ const VideoContent = ({ item }) => {
           onClick={openVideo}
         />
         <div className={css.videoDesc}>
-          {description ?? "No description for this item."}
+          {description ?? "No description available for this video."}
         </div>
       </div>
       <div className={css.btnPanel}>
@@ -172,7 +167,7 @@ const ArticleContent = ({ item }) => {
           onClick={openArticle}
         />
         <div className={css.videoDesc}>
-          {description ?? "No description for this item."}
+          {description ?? "No description available for the article."}
         </div>
       </div>
       <div className={css.btnPanel}>
@@ -218,13 +213,18 @@ const Item = ({ item }) => {
 
   return (
     <div className={css.item} tabIndex={0}>
-      <div className={css.itemHeader}>
-        <div className={css[getIcon().class]}>
-          {getIcon().label}
-          <FontAwesomeIcon icon={getIcon().icon} className={css.itemTypeIcon} />
+      {type !== "folder" && (
+        <div className={css.itemHeader}>
+          <div className={css[getIcon().class]}>
+            {getIcon().label}
+            <FontAwesomeIcon
+              icon={getIcon().icon}
+              className={css.itemTypeIcon}
+            />
+          </div>
+          <div className={css.dateCreated}>{date_created}</div>
         </div>
-        <div className={css.dateCreated}>{date_created}</div>
-      </div>
+      )}
       <div className={css.itemName}>{name}</div>
       {getContent()}
     </div>
