@@ -38,7 +38,7 @@ $article-color: #c6527a;
   }
 
   &:focus {
-    box-shadow: 0 1px 3px $primary-light;
+    box-shadow: 0 0 3px $primary-light;
     outline: none;
   }
 }
