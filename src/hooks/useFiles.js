@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export const INITIATED = "initiated";
 export const PENDING = "pending";
@@ -6,27 +6,28 @@ export const SUCCESS = "success";
 export const FAILED = "failed";
 
 const useFiles = promiseToFetchFiles => {
-  const fetchState = useRef(INITIATED);
-  const items = useRef([]);
+  const [items, setItems] = useState([]);
+  const [fetchState, setFetchState] = useState(INITIATED);
 
-  const fetchData = async () => {
-    fetchState.current = PENDING;
-    promiseToFetchFiles
-      .then(data => {
-        items.current = data;
-        fetchState.current = SUCCESS;
-      })
-      .catch(e => {
-        console.log(e);
-        fetchState.current = FAILED;
-      });
-  };
-
-  fetchData();
+  useState(() => {
+    const fetchData = async () => {
+      setFetchState(PENDING);
+      promiseToFetchFiles
+        .then(data => {
+          setItems(data);
+          setFetchState(SUCCESS);
+        })
+        .catch(e => {
+          console.log(e);
+          setFetchState(FAILED);
+        });
+    };
+    fetchData();
+  }, []);
 
   return {
-    items: items.current,
-    fetchState: fetchState.current
+    items,
+    fetchState
   };
 };
 
