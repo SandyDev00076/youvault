@@ -22,32 +22,56 @@ const Directory = () => {
       <section className={css.actionBar}>
         <div className={css.path}></div>
       </section>
-      <section>
-        <h2 className={css.sectionLabel}>
-          Folders
-          <FontAwesomeIcon icon="folder" className={css.sectionIcon} />
-        </h2>
-        <section className={css.folderSection}>
-          {dirList
-            .filter(item => item.type === "folder")
-            .map(item => (
-              <Item item={item} key={item.id} />
-            ))}
-        </section>
-      </section>
-      <section>
-        <h2 className={css.sectionLabel}>
-          Files
-          <FontAwesomeIcon icon="photo-video" className={css.sectionIcon} />
-        </h2>
-        <section className={css.mediaSection}>
-          {dirList
-            .filter(item => item.type !== "folder")
-            .map(item => (
-              <Item item={item} key={item.id} />
-            ))}
-        </section>
-      </section>
+      {dirList.length !== 0 ? (
+        <>
+          {dirList.filter(item => item.type === "folder").length !== 0 && (
+            <section>
+              <h2 className={css.sectionLabel}>
+                Folders
+                <FontAwesomeIcon icon="folder" className={css.sectionIcon} />
+              </h2>
+              <section className={css.folderSection}>
+                {dirList
+                  .filter(item => item.type === "folder")
+                  .map(item => (
+                    <Item item={item} key={item.id} />
+                  ))}
+              </section>
+            </section>
+          )}
+          {dirList.filter(item => item.type !== "folder").length !== 0 && (
+            <section>
+              <h2 className={css.sectionLabel}>
+                Files
+                <FontAwesomeIcon
+                  icon="photo-video"
+                  className={css.sectionIcon}
+                />
+              </h2>
+              <section className={css.mediaSection}>
+                {dirList
+                  .filter(item => item.type !== "folder")
+                  .map(item => (
+                    <Item item={item} key={item.id} />
+                  ))}
+              </section>
+            </section>
+          )}
+        </>
+      ) : (
+        <div className={css.emptyFolder}>
+          <FontAwesomeIcon
+            icon="exclamation-circle"
+            className={css.emptyIcon}
+          />
+          <div>
+            <div className={css.noItemsText}>No items found.</div>
+            <div className={css.noItemsText1}>
+              Try adding a file or a folder.
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

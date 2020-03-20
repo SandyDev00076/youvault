@@ -9,10 +9,9 @@ $article-color: #c6527a;
   border-radius: 10px;
   border: 1px solid $secondary;
   background-color: $secondary-light;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: $primary;
     color: white;
 
@@ -39,7 +38,7 @@ $article-color: #c6527a;
   }
 
   &:focus {
-    background-color: $primary;
+    border-color: $primary-light;
     outline: none;
   }
 }
