@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import yt from "youtube-thumbnail";
+import { useEffect } from "react";
+import { getDirectory } from "../../../api/dirApi";
+import { useHistory } from "react-router-dom";
 
 import css from "./Item.module.scss";
 
@@ -25,7 +28,13 @@ function deleteItem() {
 
 /* Folder Content */
 const FolderContent = ({ item }) => {
-  const { description, items, name } = item;
+  const { description, id } = item;
+  const [localItems, setLocalItems] = useState([]);
+  let history = useHistory();
+
+  useEffect(() => {
+    getDirectory(id).then(data => setLocalItems(data));
+  }, [id]);
 
   let itemCount = {
     article: 0,
@@ -33,7 +42,7 @@ const FolderContent = ({ item }) => {
     video: 0
   };
 
-  items.forEach(item => {
+  localItems.forEach(item => {
     switch (item.type) {
       case "article":
         itemCount.article += 1;
@@ -51,7 +60,7 @@ const FolderContent = ({ item }) => {
 
   function openFolder() {
     // TODO: Code for opening the folder
-    console.log("opening the folder");
+    history.push(`folders/${id}`);
   }
 
   return (

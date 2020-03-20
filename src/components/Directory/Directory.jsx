@@ -3,16 +3,19 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getDirectory } from "../../api/dirApi";
 import Item from "./Item";
+import { useParams } from "react-router-dom";
 
 import css from "./Directory.module.scss";
 
 /* Directory Component */
 const Directory = () => {
   const [dirList, setDirList] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
-    getDirectory().then(data => setDirList(data));
-  }, []);
+    if (id) getDirectory(id).then(data => setDirList(data));
+    else getDirectory("/").then(data => setDirList(data));
+  }, [id]);
 
   return (
     <section className={css.directory}>

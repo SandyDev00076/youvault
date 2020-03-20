@@ -13,7 +13,10 @@ function App() {
       <AppProvider>
         <Router>
           <Header />
-          <Route exact path="/">
+          <Route exact path="/folders">
+            <Directory />
+          </Route>
+          <Route exact path="/folders/:id">
             <Directory />
           </Route>
         </Router>

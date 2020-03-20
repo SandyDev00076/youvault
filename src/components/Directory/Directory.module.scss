@@ -3,42 +3,45 @@
 .directory {
   flex: 1;
   padding: 32px 48px;
+}
 
-  .actionBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.sectionIcon {
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
 
-  .mediaSection {
-    display: grid;
-    gap: 32px;
-    align-items: flex-end;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
+.path {
+}
 
-  .folderSection {
-    display: grid;
-    gap: 32px;
-    align-items: flex-end;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    margin-bottom: 48px;
-  }
+.actionBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .sectionLabel {
-    text-transform: uppercase;
-    font-weight: bold;
-    padding-bottom: 5px;
-    border-bottom: 2px solid $primary;
-    width: max-content;
-    transition: border-bottom-color 0.3s, color 0.3s;
-    color: $primary-light;
-    font-size: 0.9rem;
-    margin-bottom: 16px;
-  }
+.mediaSection {
+  display: grid;
+  gap: 32px;
+  align-items: flex-end;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
 
-  .sectionIcon {
-    margin-left: 8px;
-    font-size: 0.9rem;
-  }
+.folderSection {
+  display: grid;
+  gap: 32px;
+  align-items: flex-end;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin-bottom: 48px;
+}
+
+.sectionLabel {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: 2px solid $primary;
+  width: max-content;
+  transition: border-bottom-color 0.3s, color 0.3s;
+  color: $primary-light;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
 }
