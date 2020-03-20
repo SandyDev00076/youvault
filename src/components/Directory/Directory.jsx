@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getDirectory } from "../../api/dirApi";
 import Item from "./Item";
 import { useParams } from "react-router-dom";
+import useFiles from "../../hooks/useFiles";
 
 import css from "./Directory.module.scss";
-import useFiles from "../../hooks/useFiles";
 
 /* Directory Component */
 const Directory = () => {
