@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useCallback, useRef, useMemo } from "react";
 
 export const INITIATED = "initiated";
 export const PENDING = "pending";
@@ -6,24 +6,26 @@ export const SUCCESS = "success";
 export const FAILED = "failed";
 
 const useFiles = promiseToFetchFiles => {
-  const [fetchState, setFetchState] = useState(INITIATED);
-  const [items, setItems] = useState([]);
+  const fetchState = useRef(INITIATED);
+  const items = useRef([]);
 
   useEffect(() => {
-    setFetchState(PENDING);
-    promiseToFetchFiles
-      .then(data => {
-        setItems(data);
-        setFetchState(SUCCESS);
-      })
-      .catch(() => {
-        setFetchState(FAILED);
-      });
+    async function fetchData() {
+      try {
+        fetchState.current = PENDING;
+        items.current = await promiseToFetchFiles;
+        console.log("here");
+      } catch (e) {
+        fetchState.current = FAILED;
+      }
+    }
+    fetchData();
   }, [promiseToFetchFiles]);
 
+  console.log("and here");
   return {
-    items,
-    fetchState
+    items: items.current,
+    fetchState: fetchState.current
   };
 };
 
