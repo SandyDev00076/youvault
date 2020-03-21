@@ -3,7 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getDirectory } from "../../api/dirApi";
 import Item from "./Item";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import useFiles, { SUCCESS, PENDING } from "../../hooks/useFiles";
 import {
   FolderContentLoader,
@@ -11,6 +11,7 @@ import {
 } from "./DirectoryPlaceholders";
 
 import css from "./Directory.module.scss";
+import useFolderPath from "../../hooks/useFolderPath";
 
 /* Component to show in case Folder is empty */
 const EmptyFolder = () => {
@@ -29,11 +30,38 @@ const EmptyFolder = () => {
 const Directory = () => {
   const { id } = useParams();
   const { items, fetchState } = useFiles(getDirectory(id ?? "/"));
+  const { fullPath } = useFolderPath(id ?? "/");
+
+  /* Component for Folder path */
+  const FolderPath = () => (
+    <div className={css.path}>
+      {fullPath.length !== 0 && (
+        <>
+          {fullPath.map((path, index) => (
+            <span key={path.id}>
+              {index !== fullPath.length - 1 ? (
+                <span>
+                  <Link
+                    to={path.id !== "/" ? `/folders/${path.id}` : "/folders"}
+                  >
+                    {path.name}
+                  </Link>
+                  /
+                </span>
+              ) : (
+                <span>{path.name}</span>
+              )}
+            </span>
+          ))}
+        </>
+      )}
+    </div>
+  );
 
   return (
     <section className={css.directory}>
       <section className={css.actionBar}>
-        <div className={css.path}></div>
+        <FolderPath />
       </section>
       {items.length !== 0 || fetchState !== SUCCESS ? (
         <>

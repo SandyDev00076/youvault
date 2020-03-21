@@ -52,6 +52,15 @@
       "date_created": "25/01/2020",
       "url": "https://www.youtube.com/watch?v=RDJW0CMWUa0",
       "parent": "almanac-1"
+    },
+    {
+      "id": "almanac-7",
+      "type": "folder",
+      "name": "Things That I used to like",
+      "description": "Just some Random videos",
+      "date_created": "25/01/2020",
+      "items": [],
+      "parent": "almanac-1"
     }
   ]
 }
