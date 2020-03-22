@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import yt from "youtube-thumbnail";
 import { useEffect } from "react";
 import { getDirectory } from "../../../api/dirApi";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import css from "./Item.module.scss";
 
@@ -30,7 +30,6 @@ function deleteItem() {
 const FolderContent = ({ item }) => {
   const { description, id } = item;
   const [localItems, setLocalItems] = useState([]);
-  let history = useHistory();
 
   useEffect(() => {
     getDirectory(id).then(data => setLocalItems(data));
@@ -58,11 +57,6 @@ const FolderContent = ({ item }) => {
     }
   });
 
-  function openFolder() {
-    // TODO: Code for opening the folder
-    history.push(`folders/${id}`);
-  }
-
   return (
     <>
       <div className={css.folderDesc}>
@@ -70,11 +64,12 @@ const FolderContent = ({ item }) => {
       </div>
       <div className={css.folderFooter}>
         <div className={css.btnPanel}>
-          <FontAwesomeIcon
-            icon="arrow-alt-circle-right"
-            className={css.panelBtn}
-            onClick={openFolder}
-          />
+          <Link to={`/folders/${id}`}>
+            <FontAwesomeIcon
+              icon="arrow-alt-circle-right"
+              className={css.panelBtn}
+            />
+          </Link>
           <FontAwesomeIcon
             icon="trash"
             className={css.panelBtn}

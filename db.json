@@ -41,7 +41,6 @@
       "name": "Things That I like",
       "description": "Just some Random videos",
       "date_created": "25/01/2020",
-      "items": [],
       "parent": "/"
     },
     {
@@ -59,7 +58,6 @@
       "name": "Things That I used to like",
       "description": "Just some Random videos",
       "date_created": "25/01/2020",
-      "items": [],
       "parent": "almanac-1"
     }
   ]

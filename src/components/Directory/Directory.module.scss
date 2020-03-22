@@ -2,7 +2,7 @@
 
 .directory {
   flex: 1;
-  padding: 32px 48px;
+  padding: 16px 48px 32px 48px;
 }
 
 .sectionIcon {
@@ -10,13 +10,16 @@
   font-size: 0.9rem;
 }
 
-.path {
-}
-
 .actionBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid $secondary;
+}
+
+.path {
 }
 
 .mediaSection {
@@ -67,5 +70,24 @@
 
 .noItemsText1 {
   font-size: 20px;
+  color: $primary;
+}
+
+.parentFolder {
+  margin-right: 8px;
+
+  & > a {
+    color: $primary;
+    text-decoration: none;
+    margin-right: 8px;
+    &:hover {
+      color: $primary-dark;
+      text-decoration: underline;
+    }
+  }
+}
+
+.activeFolder {
+  font-size: 1.6rem;
   color: $primary;
 }

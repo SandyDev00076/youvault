@@ -12,6 +12,9 @@ import {
 
 import css from "./Directory.module.scss";
 import useFolderPath from "../../hooks/useFolderPath";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useCallback } from "react";
 
 /* Component to show in case Folder is empty */
 const EmptyFolder = () => {
@@ -32,6 +35,10 @@ const Directory = () => {
   const { items, fetchState } = useFiles(getDirectory(id ?? "/"));
   const { fullPath } = useFolderPath(id ?? "/");
 
+  useEffect(() => {
+    // re render the component here
+  }, [id]);
+
   /* Component for Folder path */
   const FolderPath = () => (
     <div className={css.path}>
@@ -40,7 +47,7 @@ const Directory = () => {
           {fullPath.map((path, index) => (
             <span key={path.id}>
               {index !== fullPath.length - 1 ? (
-                <span>
+                <span className={css.parentFolder}>
                   <Link
                     to={path.id !== "/" ? `/folders/${path.id}` : "/folders"}
                   >
@@ -49,7 +56,7 @@ const Directory = () => {
                   /
                 </span>
               ) : (
-                <span>{path.name}</span>
+                <span className={css.activeFolder}>{path.name}</span>
               )}
             </span>
           ))}
