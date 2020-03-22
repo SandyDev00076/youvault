@@ -6,29 +6,33 @@ export const SUCCESS = "success";
 export const FAILED = "failed";
 
 const useFiles = promiseToFetchFiles => {
-  const [items, setItems] = useState([]);
-  const [fetchState, setFetchState] = useState(INITIATED);
+  const [result, setResult] = useState({
+    items: [],
+    fetchState: INITIATED
+  });
 
   useState(() => {
     const fetchData = async () => {
-      setFetchState(PENDING);
+      let result = {
+        items: [],
+        fetchState: PENDING
+      };
       promiseToFetchFiles
         .then(data => {
-          setItems(data);
-          setFetchState(SUCCESS);
+          result.items = data;
+          result.fetchState = SUCCESS;
+          setResult(result);
         })
         .catch(e => {
           console.log(e);
-          setFetchState(FAILED);
+          result.fetchState = FAILED;
+          setResult(result);
         });
     };
     fetchData();
   }, []);
 
-  return {
-    items,
-    fetchState
-  };
+  return result;
 };
 
 export default useFiles;
