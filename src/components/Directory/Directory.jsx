@@ -3,18 +3,17 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getDirectory } from "../../api/dirApi";
 import Item from "./Item";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useFiles, { SUCCESS, PENDING } from "../../hooks/useFiles";
 import {
   FolderContentLoader,
   FilesContentLoader
 } from "./DirectoryPlaceholders";
-
-import css from "./Directory.module.scss";
 import useFolderPath from "../../hooks/useFolderPath";
 import { useEffect } from "react";
-import { useState } from "react";
-import { useCallback } from "react";
+import FolderPath from "./FolderPath";
+
+import css from "./Directory.module.scss";
 
 /* Component to show in case Folder is empty */
 const EmptyFolder = () => {
@@ -39,36 +38,10 @@ const Directory = () => {
     // re render the component here
   }, [id]);
 
-  /* Component for Folder path */
-  const FolderPath = () => (
-    <div className={css.path}>
-      {fullPath.length !== 0 && (
-        <>
-          {fullPath.map((path, index) => (
-            <span key={path.id}>
-              {index !== fullPath.length - 1 ? (
-                <span className={css.parentFolder}>
-                  <Link
-                    to={path.id !== "/" ? `/folders/${path.id}` : "/folders"}
-                  >
-                    {path.name}
-                  </Link>
-                  /
-                </span>
-              ) : (
-                <span className={css.activeFolder}>{path.name}</span>
-              )}
-            </span>
-          ))}
-        </>
-      )}
-    </div>
-  );
-
   return (
     <section className={css.directory}>
       <section className={css.actionBar}>
-        <FolderPath />
+        <FolderPath fullPath={fullPath} />
       </section>
       {items.length !== 0 || fetchState !== SUCCESS ? (
         <>

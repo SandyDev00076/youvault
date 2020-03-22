@@ -1,0 +1,20 @@
+@use '../../../styles/variables' as *;
+
+.parentFolder {
+  margin-right: 8px;
+
+  & > a {
+    color: $primary;
+    text-decoration: none;
+    margin-right: 8px;
+    &:hover {
+      color: $primary-dark;
+      text-decoration: underline;
+    }
+  }
+}
+
+.activeFolder {
+  font-size: 1.6rem;
+  color: $primary;
+}
