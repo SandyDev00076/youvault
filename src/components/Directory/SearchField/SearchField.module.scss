@@ -34,9 +34,10 @@
   cursor: pointer;
   display: block;
   text-decoration: none;
-  color: $primary;
+  color: $primary-light;
 
   &:hover {
-    background-color: $secondary;
+    color: white;
+    background-color: $primary-light;
   }
 }

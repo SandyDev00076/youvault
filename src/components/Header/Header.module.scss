@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: $primary-light;
 
   .navLinks {
     display: flex;
@@ -14,10 +15,11 @@
       text-decoration: none;
       font-weight: bold;
       margin-left: 64px;
+      color: white;
 
       &:hover,
       &:focus {
-        color: $primary;
+        color: $secondary;
         text-decoration: underline;
         outline: none;
       }
