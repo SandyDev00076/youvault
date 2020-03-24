@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import useSearchQuery from "../../../hooks/useSearchQuery";
+import { Link } from "react-router-dom";
 
 import css from "./SearchField.module.scss";
 
@@ -18,9 +19,19 @@ const SearchField = ({ placeholder }) => {
       {filteredItems.length !== 0 && (
         <div className={css.searchDropdown}>
           {filteredItems.map(item => (
-            <div key={item.id} className={css.searchDropdownItem}>
+            <Link
+              key={item.id}
+              to={`/folders/${
+                item.type === "folder"
+                  ? item.id
+                  : item.parent === "/"
+                  ? ""
+                  : item.parent
+              }`}
+              className={css.searchDropdownItem}
+            >
               {item.name}
-            </div>
+            </Link>
           ))}
         </div>
       )}

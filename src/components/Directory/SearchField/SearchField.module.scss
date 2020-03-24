@@ -32,6 +32,9 @@
 .searchDropdownItem {
   padding: 6px 4px;
   cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: $primary;
 
   &:hover {
     background-color: $secondary;
