@@ -1,9 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import useSearchQuery from "../../../hooks/useSearchQuery";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
 import css from "./SearchField.module.scss";
+
+const iconMappingTable = {
+  article: "pencil-alt",
+  video: "video",
+  folder: "folder"
+};
 
 const SearchField = ({ placeholder }) => {
   const [queryString, setQueryString] = useState("");
@@ -30,7 +37,14 @@ const SearchField = ({ placeholder }) => {
               }`}
               className={css.searchDropdownItem}
             >
-              {item.name}
+              <div>
+                <div className={css.itemName}>{item.name}</div>
+                <div className={css.itemParentName}>{item.parentName}</div>
+              </div>
+              <FontAwesomeIcon
+                icon={iconMappingTable[item.type]}
+                className={css.itemIcon}
+              />
             </Link>
           ))}
         </div>

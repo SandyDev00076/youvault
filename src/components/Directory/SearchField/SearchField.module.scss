@@ -8,14 +8,14 @@
   width: 250px;
   padding: 4px 10px;
   border-radius: 5px;
-  border: 1px solid $secondary;
+  border: 1px solid $secondary-dark;
   font-family: "Cairo", sans-serif;
   color: $primary;
   font-size: 1.1rem;
 
   &:focus {
     outline: none;
-    border-color: $secondary-dark;
+    border-color: $primary-light;
   }
 }
 
@@ -30,14 +30,34 @@
 }
 
 .searchDropdownItem {
-  padding: 6px 4px;
+  padding: 6px;
   cursor: pointer;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-decoration: none;
   color: $primary-light;
 
   &:hover {
     color: white;
     background-color: $primary-light;
+
+    .itemIcon {
+      color: white;
+    }
   }
+}
+
+.itemName {
+  font-size: 1.1rem;
+}
+
+.itemParentName {
+  font-size: 0.8rem;
+  color: $secondary-dark;
+}
+
+.itemIcon {
+  margin-right: 5px;
+  color: $primary-light;
 }
