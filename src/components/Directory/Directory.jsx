@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import FolderPath from "./FolderPath";
 
 import css from "./Directory.module.scss";
+import SearchField from "./SearchField/SearchField";
 
 /* Component to show in case Folder is empty */
 const EmptyFolder = () => {
@@ -42,6 +43,7 @@ const Directory = () => {
     <section className={css.directory}>
       <section className={css.actionBar}>
         <FolderPath fullPath={fullPath} />
+        <SearchField placeholder="Search for files / folders" />
       </section>
       {items.length !== 0 || fetchState !== SUCCESS ? (
         <>

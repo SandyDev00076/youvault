@@ -1,0 +1,20 @@
+@use '../../../styles/variables' as *;
+
+.searchField {
+  position: relative;
+}
+
+.searchInput {
+  width: 250px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid $secondary;
+  font-family: "Cairo", sans-serif;
+  color: $primary;
+  font-size: 1.1rem;
+
+  &:focus {
+    outline: none;
+    border-color: $secondary-dark;
+  }
+}
