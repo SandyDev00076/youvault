@@ -6,19 +6,24 @@ import css from "./SearchField.module.scss";
 
 const SearchField = ({ placeholder }) => {
   const [queryString, setQueryString] = useState("");
-  const { filteredItems } = useSearchQuery(queryString);
-
-  function getSearchQuery(text) {
-    setQueryString(text);
-  }
+  const { filteredItems } = useSearchQuery({ text: queryString });
 
   return (
     <div className={css.searchField}>
       <input
         className={css.searchInput}
         placeholder={placeholder}
-        onChange={evt => getSearchQuery(evt.target.value)}
+        onChange={evt => setQueryString(evt.target.value)}
       />
+      {filteredItems.length !== 0 && (
+        <div className={css.searchDropdown}>
+          {filteredItems.map(item => (
+            <div key={item.id} className={css.searchDropdownItem}>
+              {item.name}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

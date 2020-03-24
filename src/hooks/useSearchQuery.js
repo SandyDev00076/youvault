@@ -1,26 +1,31 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { getAllItems } from "../api/dirApi";
 
-const useSearchQuery = ({ text }) => {
-  const [queryRecords, setQueryRecords] = useState([]);
+const useSearchQuery = ({ text = "" }) => {
+  const searchRecords = useRef("");
 
   useEffect(() => {
-    const getFilteredResults = async () => {
-      getAllItems().then(data => {
-        let records = data.filter(item => {
-          let itemName = item.name ?? "";
-          console.log("Item Name - ", itemName);
-          console.log("text - ", text);
-          return itemName.includes(text);
-        });
-        setQueryRecords(records);
-      });
-    };
-    getFilteredResults();
+    async function fetchData() {
+      try {
+        const records = await getAllItems();
+        searchRecords.current = records.filter(item =>
+          item.name.toLowerCase().includes(text.toLowerCase())
+        );
+      } catch (e) {
+        console.log(e);
+      } finally {
+      }
+    }
+    fetchData();
   }, [text]);
 
+  if (!text)
+    return {
+      filteredItems: []
+    };
+
   return {
-    filteredItems: queryRecords
+    filteredItems: searchRecords.current
   };
 };
 

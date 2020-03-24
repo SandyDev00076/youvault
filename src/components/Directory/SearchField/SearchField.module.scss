@@ -18,3 +18,22 @@
     border-color: $secondary-dark;
   }
 }
+
+.searchDropdown {
+  position: absolute;
+  max-height: 200px;
+  width: 250px;
+  background-color: white;
+  overflow-y: auto;
+  border: 1px solid $secondary-dark;
+  border-radius: 5px;
+}
+
+.searchDropdownItem {
+  padding: 6px 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $secondary;
+  }
+}
