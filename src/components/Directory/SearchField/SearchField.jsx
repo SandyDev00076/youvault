@@ -1,10 +1,15 @@
 import React from "react";
+import { useState } from "react";
+import useSearchQuery from "../../../hooks/useSearchQuery";
 
 import css from "./SearchField.module.scss";
 
 const SearchField = ({ placeholder }) => {
+  const [queryString, setQueryString] = useState("");
+  const { filteredItems } = useSearchQuery(queryString);
+
   function getSearchQuery(text) {
-    console.log(text);
+    setQueryString(text);
   }
 
   return (
