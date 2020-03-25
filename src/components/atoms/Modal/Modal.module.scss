@@ -20,8 +20,14 @@
   background-color: white;
 }
 
+.modalHeader {
+  margin-bottom: 10px;
+}
+
 .modalHeading {
   font-size: 1.2rem;
+  margin: 0;
+  color: $primary-light;
 }
 
 .modalCloseBtn {

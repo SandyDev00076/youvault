@@ -2,11 +2,12 @@ import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import yt from "youtube-thumbnail";
-import { useEffect } from "react";
 import { getDirectory } from "../../../api/dirApi";
 import { Link } from "react-router-dom";
+import useFiles from "../../../hooks/useFiles";
 
 import css from "./Item.module.scss";
+import DeleteFolder from "./DeleteFolder";
 
 const iconMappingTable = {
   article: {
@@ -28,12 +29,10 @@ function deleteItem() {
 
 /* Folder Content */
 const FolderContent = ({ item }) => {
-  const { description, id } = item;
-  const [localItems, setLocalItems] = useState([]);
+  const { description, id, name } = item;
+  const { items: localItems } = useFiles(getDirectory(id));
 
-  useEffect(() => {
-    getDirectory(id).then(data => setLocalItems(data));
-  }, [id]);
+  const [deletePopup, setDeletePopup] = useState(false);
 
   let itemCount = {
     article: 0,
@@ -73,7 +72,7 @@ const FolderContent = ({ item }) => {
           <FontAwesomeIcon
             icon="trash"
             className={css.panelBtn}
-            onClick={deleteItem}
+            onClick={() => setDeletePopup(true)}
           />
         </div>
         <div className={css.folderItemCount}>
@@ -97,6 +96,12 @@ const FolderContent = ({ item }) => {
           </div>
         </div>
       </div>
+      {deletePopup && (
+        <DeleteFolder
+          folderName={name}
+          handleClose={() => setDeletePopup(false)}
+        />
+      )}
     </>
   );
 };
