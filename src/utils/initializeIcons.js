@@ -11,7 +11,8 @@ import {
   faArrowAltCircleRight,
   faPhotoVideo,
   faExclamationCircle,
-  faHome
+  faHome,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 
 function initializeIcons() {
@@ -27,7 +28,8 @@ function initializeIcons() {
     faArrowAltCircleRight,
     faPhotoVideo,
     faExclamationCircle,
-    faHome
+    faHome,
+    faTimes
   );
 }
 
