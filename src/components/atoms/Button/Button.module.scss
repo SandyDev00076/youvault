@@ -1,0 +1,40 @@
+@use '../../../styles/variables' as *;
+
+.btn {
+  min-width: 150px;
+  padding: 4px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+  font-family: "Cairo", sans-serif;
+  font-size: 14px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn_primary {
+  @extend .btn;
+  background-color: $primary-light;
+  color: white;
+
+  &:hover {
+    background-color: $primary;
+  }
+}
+
+.btn_secondary {
+  @extend .btn;
+  background-color: white;
+  border: 1px solid $secondary-dark;
+  color: $primary-light;
+
+  &:hover {
+    border-color: $secondary-dark;
+    color: $primary;
+    background-color: $secondary;
+  }
+}

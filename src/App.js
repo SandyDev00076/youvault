@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AppProvider } from "./context/appContext";
 import Header from "./components/Header";
 import Directory from "./components/Directory";
+import "./styles/globals.scss";
 
 import "./App.scss";
 

@@ -1,0 +1,10 @@
+.btnpanel {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center;
+
+  & > button {
+    margin: 0 8px;
+  }
+}
