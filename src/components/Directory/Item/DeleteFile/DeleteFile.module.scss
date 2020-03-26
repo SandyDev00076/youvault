@@ -1,0 +1,6 @@
+@use '../../../../styles/variables' as *;
+
+.fileName {
+  font-weight: bold;
+  color: $primary;
+}

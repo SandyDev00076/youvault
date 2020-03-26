@@ -6,7 +6,7 @@ import Button from "../../../atoms/Button";
 
 const DeleteFolder = ({ folderName, handleClose }) => {
   return (
-    <Modal title="Delete Folder" closeBtn>
+    <Modal title="Delete Folder">
       Are you sure you want to delete the folder{" "}
       <span className={css.folderName}>{folderName}</span> and its content ?
       <div className="btnPanel">

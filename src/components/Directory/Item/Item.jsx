@@ -8,6 +8,7 @@ import useFiles from "../../../hooks/useFiles";
 
 import css from "./Item.module.scss";
 import DeleteFolder from "./DeleteFolder";
+import DeleteFile from "./DeleteFile/DeleteFile";
 
 const iconMappingTable = {
   article: {
@@ -21,11 +22,6 @@ const iconMappingTable = {
     icon: "video"
   }
 };
-
-function deleteItem() {
-  // TODO: Code for deleting the item
-  console.log("deleting the item");
-}
 
 /* Folder Content */
 const FolderContent = ({ item }) => {
@@ -107,7 +103,7 @@ const FolderContent = ({ item }) => {
 };
 
 /* Video Content */
-const VideoContent = ({ item }) => {
+const VideoContent = ({ item, onDelete }) => {
   const { name, url, description } = item;
 
   function openVideo() {
@@ -141,7 +137,7 @@ const VideoContent = ({ item }) => {
         <FontAwesomeIcon
           icon="trash"
           className={css.panelBtn}
-          onClick={deleteItem}
+          onClick={onDelete}
         />
         <FontAwesomeIcon
           icon="share-alt"
@@ -154,7 +150,7 @@ const VideoContent = ({ item }) => {
 };
 
 /* Article Content */
-const ArticleContent = ({ item }) => {
+const ArticleContent = ({ item, onDelete }) => {
   const { name, url, description } = item;
 
   function openArticle() {
@@ -188,7 +184,7 @@ const ArticleContent = ({ item }) => {
         <FontAwesomeIcon
           icon="trash"
           className={css.panelBtn}
-          onClick={deleteItem}
+          onClick={onDelete}
         />
         <FontAwesomeIcon
           icon="share-alt"
@@ -202,19 +198,24 @@ const ArticleContent = ({ item }) => {
 
 const Item = ({ item }) => {
   const { type, date_created, name } = item;
+  const [deletePopup, setDeletePopup] = useState(false);
 
   function getIcon() {
     return iconMappingTable[type];
   }
 
+  function deleteItem() {
+    setDeletePopup(true);
+  }
+
   function getContent() {
     switch (type) {
       case "folder":
-        return <FolderContent item={item} />;
+        return <FolderContent item={item} onDelete={deleteItem} />;
       case "video":
-        return <VideoContent item={item} />;
+        return <VideoContent item={item} onDelete={deleteItem} />;
       case "article":
-        return <ArticleContent item={item} />;
+        return <ArticleContent item={item} onDelete={deleteItem} />;
       default:
         return <div></div>;
     }
@@ -236,6 +237,13 @@ const Item = ({ item }) => {
       )}
       <div className={css.itemName}>{name}</div>
       {getContent()}
+      {deletePopup && (
+        <DeleteFile
+          fileName={name}
+          fileType={type}
+          handleClose={() => setDeletePopup(false)}
+        />
+      )}
     </div>
   );
 };
