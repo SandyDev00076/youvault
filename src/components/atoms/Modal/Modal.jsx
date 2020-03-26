@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import css from "./Modal.module.scss";
 
-const Modal = ({ children, title, closeBtn = false }) => {
+const Modal = ({ children, title, closeBtn = false, onClose }) => {
   return (
     <Portal>
       <div className={css.modalWrapper}>
@@ -13,7 +13,11 @@ const Modal = ({ children, title, closeBtn = false }) => {
           <div className={css.modalHeader}>
             <h1 className={css.modalHeading}>{title}</h1>
             {closeBtn && (
-              <FontAwesomeIcon className={css.modalCloseBtn} icon="times" />
+              <FontAwesomeIcon
+                className={css.modalCloseBtn}
+                onClick={onClose}
+                icon="times"
+              />
             )}
           </div>
           {children}
