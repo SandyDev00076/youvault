@@ -12,7 +12,8 @@ import {
   faPhotoVideo,
   faExclamationCircle,
   faHome,
-  faTimes
+  faTimes,
+  faPlus
 } from "@fortawesome/free-solid-svg-icons";
 
 function initializeIcons() {
@@ -29,7 +30,8 @@ function initializeIcons() {
     faPhotoVideo,
     faExclamationCircle,
     faHome,
-    faTimes
+    faTimes,
+    faPlus
   );
 }
 

@@ -40,8 +40,16 @@
   color: $secondary-dark;
   transition: color 0.3s;
   cursor: pointer;
+  margin: 0 0 0 16px;
+  border: none;
+  background-color: white;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $primary;
+  }
+
+  &:focus {
+    outline: none;
   }
 }

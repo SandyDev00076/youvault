@@ -15,6 +15,7 @@ import FolderPath from "./FolderPath";
 
 import css from "./Directory.module.scss";
 import SearchField from "./SearchField/SearchField";
+import AddItem from "./AddItem/AddItem";
 
 /* Component to show in case Folder is empty */
 const EmptyFolder = () => {
@@ -90,6 +91,8 @@ const Directory = () => {
       ) : (
         <EmptyFolder />
       )}
+      {/* Button to add a file or folder */}
+      <AddItem />
     </section>
   );
 };

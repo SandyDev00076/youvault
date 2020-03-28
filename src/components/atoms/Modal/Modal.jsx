@@ -13,11 +13,9 @@ const Modal = ({ children, title, closeBtn = false, onClose }) => {
           <div className={css.modalHeader}>
             <h1 className={css.modalHeading}>{title}</h1>
             {closeBtn && (
-              <FontAwesomeIcon
-                className={css.modalCloseBtn}
-                onClick={onClose}
-                icon="times"
-              />
+              <button className={css.modalCloseBtn} onClick={onClose}>
+                <FontAwesomeIcon icon="times" />
+              </button>
             )}
           </div>
           {children}
