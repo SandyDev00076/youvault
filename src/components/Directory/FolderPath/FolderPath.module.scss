@@ -4,11 +4,11 @@
   margin-right: 8px;
 
   & > a {
-    color: $primary;
+    color: $color-1;
     text-decoration: none;
     margin-right: 8px;
     &:hover {
-      color: $primary-dark;
+      color: $color-1-dark;
       text-decoration: underline;
     }
   }
@@ -16,10 +16,5 @@
 
 .activeFolder {
   font-size: 1.5rem;
-  color: $primary;
-}
-
-.homeIcon {
-  margin-left: 6px;
-  color: $primary-light;
+  color: $color-1-darkest;
 }

@@ -6,7 +6,7 @@
   cursor: pointer;
   text-transform: uppercase;
   font-size: 0.9rem;
-  background-color: $primary-light;
+  background-color: $color-1;
   transition: background-color 0.3s;
   color: white;
 
@@ -14,7 +14,7 @@
   justify-content: center;
   align-items: center;
 
-  box-shadow: 0 0 5px $secondary;
+  box-shadow: 0 0 5px $color-1;
 
   position: fixed;
   bottom: 32px;
@@ -22,7 +22,7 @@
 
   &:hover,
   &:focus {
-    background-color: $primary;
+    background-color: $color-1-dark;
     .addItemIcon {
       animation: spinIcon ease-in-out 1s 1;
     }
@@ -32,7 +32,7 @@
 .addItemIcon {
   margin: 0 10px;
   font-size: 1.1rem;
-  color: $secondary;
+  color: $color-1-lightest;
 }
 
 .addItemText {

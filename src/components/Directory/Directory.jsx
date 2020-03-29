@@ -14,7 +14,7 @@ import { useEffect } from "react";
 import FolderPath from "./FolderPath";
 
 import css from "./Directory.module.scss";
-import SearchField from "./SearchField/SearchField";
+import SearchField from "./SearchField";
 import AddItem from "./AddItem/AddItem";
 
 /* Component to show in case Folder is empty */

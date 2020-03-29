@@ -23,6 +23,10 @@ const iconMappingTable = {
   }
 };
 
+function getIcon(type) {
+  return iconMappingTable[type];
+}
+
 /* Folder Content */
 const FolderContent = ({ item }) => {
   const { description, id, name } = item;
@@ -53,7 +57,8 @@ const FolderContent = ({ item }) => {
   });
 
   return (
-    <>
+    <div className={css.folder}>
+      <div className={css.folderName}>{name}</div>
       <div className={css.folderDesc}>
         {description ?? "No description available for the folder."}
       </div>
@@ -98,13 +103,13 @@ const FolderContent = ({ item }) => {
           handleClose={() => setDeletePopup(false)}
         />
       )}
-    </>
+    </div>
   );
 };
 
 /* Video Content */
 const VideoContent = ({ item, onDelete }) => {
-  const { name, url, description } = item;
+  const { name, url, date_created, description } = item;
 
   function openVideo() {
     window.open(url, "_blank");
@@ -116,7 +121,18 @@ const VideoContent = ({ item, onDelete }) => {
   }
 
   return (
-    <>
+    <div className={css.file}>
+      <div className={css.itemHeader}>
+        <div className={css[getIcon("video").class]}>
+          {getIcon("video").label}
+          <FontAwesomeIcon
+            icon={getIcon("video").icon}
+            className={css.itemTypeIcon}
+          />
+        </div>
+        <div className={css.dateCreated}>{date_created}</div>
+      </div>
+      <div className={css.itemName}>{name}</div>
       <div className={css.videoDetails}>
         <img
           src={yt(url).default.url}
@@ -145,13 +161,13 @@ const VideoContent = ({ item, onDelete }) => {
           onClick={shareVideo}
         />
       </div>
-    </>
+    </div>
   );
 };
 
 /* Article Content */
 const ArticleContent = ({ item, onDelete }) => {
-  const { name, url, description } = item;
+  const { name, url, date_created, description } = item;
 
   function openArticle() {
     window.open(url, "_blank");
@@ -163,7 +179,18 @@ const ArticleContent = ({ item, onDelete }) => {
   }
 
   return (
-    <>
+    <div className={css.file}>
+      <div className={css.itemHeader}>
+        <div className={css[getIcon("article").class]}>
+          {getIcon("article").label}
+          <FontAwesomeIcon
+            icon={getIcon("article").icon}
+            className={css.itemTypeIcon}
+          />
+        </div>
+        <div className={css.dateCreated}>{date_created}</div>
+      </div>
+      <div className={css.itemName}>{name}</div>
       <div className={css.videoDetails}>
         <img
           src={"http://placehold.jp/120x90.png"}
@@ -192,17 +219,13 @@ const ArticleContent = ({ item, onDelete }) => {
           onClick={shareArticle}
         />
       </div>
-    </>
+    </div>
   );
 };
 
 const Item = ({ item }) => {
-  const { type, date_created, name } = item;
+  const { type, name } = item;
   const [deletePopup, setDeletePopup] = useState(false);
-
-  function getIcon() {
-    return iconMappingTable[type];
-  }
 
   function deleteItem() {
     setDeletePopup(true);
@@ -222,20 +245,7 @@ const Item = ({ item }) => {
   }
 
   return (
-    <div className={css.item} tabIndex={0}>
-      {type !== "folder" && (
-        <div className={css.itemHeader}>
-          <div className={css[getIcon().class]}>
-            {getIcon().label}
-            <FontAwesomeIcon
-              icon={getIcon().icon}
-              className={css.itemTypeIcon}
-            />
-          </div>
-          <div className={css.dateCreated}>{date_created}</div>
-        </div>
-      )}
-      <div className={css.itemName}>{name}</div>
+    <div tabIndex={0}>
       {getContent()}
       {deletePopup && (
         <DeleteFile

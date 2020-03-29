@@ -3,6 +3,7 @@
 .directory {
   flex: 1;
   padding: 16px 48px 32px 48px;
+  background-color: $background-color;
 }
 
 .sectionIcon {
@@ -16,7 +17,7 @@
   justify-content: space-between;
   margin-bottom: 32px;
   padding: 10px 0;
-  border-bottom: 1px solid $secondary;
+  border-bottom: 1px solid $color-1-lightest;
 }
 
 .mediaSection {
@@ -38,34 +39,39 @@
   text-transform: uppercase;
   font-weight: bold;
   padding-bottom: 5px;
-  border-bottom: 2px solid $primary;
+  border-bottom: 2px solid $color-1-dark;
   width: max-content;
   transition: border-bottom-color 0.3s, color 0.3s;
-  color: $primary-light;
   font-size: 0.9rem;
   margin-bottom: 16px;
+  color: $color-1-dark;
+}
+
+.filesLabel {
+  @extend .sectionLabel;
 }
 
 .emptyFolder {
   padding: 48px 0;
   display: flex;
-  background-color: $secondary-light;
+  background-color: $color-1-lightest;
+  border-radius: 40px;
   justify-content: center;
   align-items: center;
 }
 
 .emptyIcon {
   margin-right: 16px;
-  color: $primary-dark;
+  color: $color-1-dark;
   font-size: 3rem;
 }
 
 .noItemsText {
   font-size: 32px;
-  color: $primary;
+  color: $color-1;
 }
 
 .noItemsText1 {
   font-size: 20px;
-  color: $primary;
+  color: $color-1-light;
 }

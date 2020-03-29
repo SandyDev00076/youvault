@@ -7,39 +7,21 @@ $article-color: #c6527a;
   padding: 16px;
   width: 100%;
   border-radius: 10px;
-  border: 1px solid $secondary;
-  background-color: $secondary-light;
+}
+
+.file {
+  @extend .item;
+  border: 1px solid $color-1-lighter;
+  background-color: white;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 
   &:hover {
-    background-color: $primary;
-    color: white;
-
-    .itemType {
-      border-bottom-color: white;
-      color: white;
-    }
-
-    .itemName {
-      color: white;
-    }
-
-    .panelBtn {
-      color: white;
-    }
-
-    .folderItemCount {
-      color: white;
-    }
-
-    .videoThumbnail {
-      opacity: 1;
-    }
+    background-color: $color-1-lightest;
   }
 
   &:focus {
-    box-shadow: 0 0 3px $primary-light;
     outline: none;
+    border: 1px solid $color-1;
   }
 }
 
@@ -55,7 +37,7 @@ $article-color: #c6527a;
   text-transform: uppercase;
   font-weight: bold;
   padding-bottom: 5px;
-  border-bottom: 2px solid $primary;
+  border-bottom: 2px solid $color-1;
   width: max-content;
   transition: border-bottom-color 0.3s, color 0.3s;
 }
@@ -84,7 +66,7 @@ $article-color: #c6527a;
 .itemName {
   font-size: 1.3rem;
   margin-bottom: 10px;
-  color: $primary-darker;
+  color: $color-1-darkest;
   transition: color 0.3s;
 }
 
@@ -92,11 +74,11 @@ $article-color: #c6527a;
   display: flex;
   align-items: center;
   padding: 5px 0;
+  color: $color-1-darker;
 }
 
 .panelBtn {
   margin-right: 10px;
-  color: $primary;
   opacity: 0.6;
   transition: color 0.3s, opacity 0.3s;
   cursor: pointer;
@@ -107,6 +89,22 @@ $article-color: #c6527a;
 }
 
 /* Folder classes */
+.folder {
+  @extend .item;
+  background-color: white;
+  border: 1px solid $color-1-lighter;
+  color: $color-1-darker;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $color-1-lightest;
+  }
+}
+
+.folderName {
+  @extend .itemName;
+  color: $color-1-darkest;
+}
 
 .folderDesc {
   font-size: 0.9rem;
@@ -120,7 +118,7 @@ $article-color: #c6527a;
 }
 
 .folderItemCount {
-  color: $primary-light;
+  color: $color-1-light;
   opacity: 0.6;
   transition: color 0.3s;
   font-size: 0.9rem;

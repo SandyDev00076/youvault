@@ -1,0 +1,22 @@
+@use '../../../styles/variables' as *;
+
+.label {
+  position: relative;
+}
+
+.labelTitle {
+  position: relative;
+  bottom: 1px;
+  margin-left: 5px;
+  padding: 5px 14px 3px 15px;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+  background-color: $grey-shade-2;
+  color: white;
+  width: max-content;
+  border-radius: 5px 5px 0 0;
+}
+
+.labelContent {
+}

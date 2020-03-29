@@ -32,12 +32,12 @@
   font-size: 1.3rem;
   font-weight: normal;
   margin: 0;
-  color: $primary-light;
+  color: $color-1-dark;
 }
 
 .modalCloseBtn {
   font-size: 1.5rem;
-  color: $secondary-dark;
+  color: $color-1-lightest;
   transition: color 0.3s;
   cursor: pointer;
   margin: 0 0 0 16px;
@@ -46,7 +46,7 @@
 
   &:hover,
   &:focus {
-    color: $primary;
+    color: $color-1;
   }
 
   &:focus {

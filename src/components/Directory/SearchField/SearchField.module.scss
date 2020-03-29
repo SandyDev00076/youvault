@@ -2,20 +2,23 @@
 
 .searchField {
   position: relative;
+  width: 250px;
 }
 
 .searchInput {
-  width: 250px;
+  width: 100%;
   padding: 4px 10px;
-  border-radius: 5px;
-  border: 1px solid $secondary-dark;
+  border-radius: 15px;
+  background-color: $color-1-lightest;
+  border: 1px solid white;
   font-family: "Cairo", sans-serif;
-  color: $primary;
+  color: $color-1-dark;
   font-size: 1.1rem;
+  transition: border-color 0.3s;
 
   &:focus {
     outline: none;
-    border-color: $primary-light;
+    border-color: $color-1-lighter;
   }
 }
 
@@ -25,8 +28,9 @@
   width: 250px;
   background-color: white;
   overflow-y: auto;
-  border: 1px solid $secondary-dark;
-  border-radius: 5px;
+  border: 1px solid $color-1-lighter;
+  border-radius: 15px;
+  margin-top: 5px;
 }
 
 .searchDropdownItem {
@@ -36,28 +40,25 @@
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
-  color: $primary-light;
+  color: $color-1-light;
 
   &:hover {
     color: white;
-    background-color: $primary-light;
-
-    .itemIcon {
-      color: white;
-    }
+    background-color: $color-1-lightest;
   }
 }
 
 .itemName {
-  font-size: 1.1rem;
+  font-size: 1rem;
+  color: $color-1-dark;
 }
 
 .itemParentName {
   font-size: 0.8rem;
-  color: $secondary-dark;
+  color: $color-1-light;
 }
 
 .itemIcon {
   margin-right: 5px;
-  color: $primary-light;
+  color: $color-1;
 }

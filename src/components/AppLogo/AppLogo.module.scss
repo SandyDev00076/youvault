@@ -6,15 +6,17 @@
   .appName {
     font-size: 1.5rem;
     margin: 0 0 0 10px;
-    color: white;
+    color: $color-1-lightest;
+    text-shadow: 0 0 5px $color-1-dark;
   }
 
   .logoIcon {
     height: 36px;
     width: 36px;
     border-radius: 18px;
-    background-color: white;
-    color: $primary;
+    background-color: $color-1-lightest;
+    color: $color-1-dark;
+    box-shadow: 0 0 5px $color-1-dark;
 
     display: flex;
     justify-content: center;

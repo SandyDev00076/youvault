@@ -1,0 +1,45 @@
+@use '../../../styles/variables' as *;
+
+.tabsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  width: 300px;
+}
+
+.tabBtn {
+  width: 148px;
+  border: none;
+  background-color: white;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+  color: grey;
+  padding: 3px;
+  border-bottom: 2px solid rgb(235, 235, 235);
+  font-family: "Cairo", sans-serif;
+  transition: color 0.3s, border-bottom-color 0.3s;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: $color-1;
+    border-bottom-color: $color-1-light;
+  }
+}
+
+.tabIcon {
+  margin-right: 5px;
+}
+
+.activeTabBtn {
+  color: $color-1;
+  border-bottom-color: $color-1-light;
+}
+
+.tabContent {
+}

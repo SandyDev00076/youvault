@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import css from "./Tabs.module.scss";
 
@@ -14,6 +15,7 @@ const Tabs = ({ children }) => {
   }, [children]);
 
   const tabTitles = useMemo(() => tabs.map(tab => tab.props.title), [tabs]);
+  const tabsIcons = useMemo(() => tabs.map(tab => tab.props.labelIcon), [tabs]);
 
   const [activeTab, setActiveTab] = useState(() => {
     tabs.forEach((tab, i) => {
@@ -23,17 +25,23 @@ const Tabs = ({ children }) => {
   });
 
   return (
-    <div className={css.tabsContainer}>
-      {tabTitles.map((tab, i) => (
-        <button
-          className={`${css.tabBtn} ${activeTab === i && css.activeTabBtn}`}
-          onClick={() => setActiveTab(i)}
-        >
-          {tab}
-        </button>
-      ))}
+    <>
+      <div className={css.tabsContainer}>
+        {tabTitles.map((tab, i) => (
+          <button
+            key={i}
+            className={`${css.tabBtn} ${activeTab === i && css.activeTabBtn}`}
+            onClick={() => setActiveTab(i)}
+          >
+            {tabsIcons[i] !== null && (
+              <FontAwesomeIcon className={css.tabIcon} icon={tabsIcons[i]} />
+            )}
+            {tab}
+          </button>
+        ))}
+      </div>
       {tabs[activeTab]}
-    </div>
+    </>
   );
 };
 

@@ -18,23 +18,22 @@
 
 .btn_primary {
   @extend .btn;
-  background-color: $primary-light;
+  background-color: $color-1;
   color: white;
 
   &:hover {
-    background-color: $primary;
+    background-color: $color-1-light;
   }
 }
 
 .btn_secondary {
   @extend .btn;
   background-color: white;
-  border: 1px solid $secondary-dark;
-  color: $primary-light;
+  border: 1px solid $color-1-lighter;
+  color: $color-1;
 
   &:hover {
-    border-color: $secondary-dark;
-    color: $primary;
-    background-color: $secondary;
+    border-color: $color-1-light;
+    background-color: $color-1-lightest;
   }
 }
