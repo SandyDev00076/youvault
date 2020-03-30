@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { getAllItems } from "../api/dirApi";
 
 const useSearchQuery = ({ text = "" }) => {
-  const searchRecords = useRef("");
+  const searchRecords = useRef([]);
 
   useEffect(() => {
     async function fetchData() {
