@@ -1,0 +1,19 @@
+@use '../../../../styles/variables' as *;
+
+.sourceFolder {
+  position: relative;
+}
+
+.folderDropdown {
+  position: absolute;
+  border-radius: 5px;
+  margin-top: -10px;
+  border: 1px solid $color-1-lighter;
+}
+
+.folder {
+  width: 200px;
+  background-color: white;
+  padding: 5px;
+  cursor: pointer;
+}

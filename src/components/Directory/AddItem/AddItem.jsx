@@ -9,12 +9,14 @@ import Textarea from "../../atoms/Textarea";
 import Button from "../../atoms/Button";
 
 import css from "./AddItem.module.scss";
+import SourceFolder from "./SourceFolder";
 
 const AddItemDialogBox = ({ handleClose }) => {
   return (
     <Modal title="Add an Item" closeBtn onClose={handleClose}>
       <Tabs>
         <Tab title="Folder" labelIcon="folder" active>
+          <SourceFolder full title="Where" />
           <Label title="Name">
             <Input full />
           </Label>
