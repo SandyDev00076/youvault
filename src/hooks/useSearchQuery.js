@@ -1,14 +1,14 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { getAllItems } from "../api/dirApi";
 
 const useSearchQuery = ({ text = "" }) => {
-  const searchRecords = useRef([]);
+  const [filteredItems, setFilteredRecords] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const records = await getAllItems();
-        searchRecords.current = records
+        const recordsToSet = records
           .filter(item => item.name.toLowerCase().includes(text.toLowerCase()))
           .map(item => {
             let parentRecord = records.find(ele => ele.id === item.parent);
@@ -22,6 +22,7 @@ const useSearchQuery = ({ text = "" }) => {
               parentName
             };
           });
+        setFilteredRecords(recordsToSet);
       } catch (e) {
         console.log(e);
       } finally {
@@ -36,7 +37,7 @@ const useSearchQuery = ({ text = "" }) => {
     };
 
   return {
-    filteredItems: searchRecords.current
+    filteredItems
   };
 };
 
