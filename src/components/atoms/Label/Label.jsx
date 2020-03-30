@@ -6,7 +6,7 @@ const Label = ({ children, title = "label" }) => {
   return (
     <label className={css.label}>
       <div className={css.labelTitle}>{title}</div>
-      <div className={css.labelContent}>{children}</div>
+      {children}
     </label>
   );
 };

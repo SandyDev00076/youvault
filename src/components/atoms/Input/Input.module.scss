@@ -1,0 +1,19 @@
+@use '../../../styles/variables' as *;
+
+.input {
+  padding: 4px 6px;
+  border: 2px solid $color-1-lighter;
+  border-radius: 5px;
+  font-family: "Cairo", sans-serif;
+  color: $color-1;
+  font-size: 1rem;
+
+  &:focus {
+    outline: none;
+    border-color: $color-1-light;
+  }
+}
+
+.full {
+  width: 100%;
+}

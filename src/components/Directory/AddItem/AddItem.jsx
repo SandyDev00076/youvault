@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "../../atoms/Modal";
 import Tabs, { Tab } from "../../atoms/Tabs";
 import Label from "../../atoms/Label";
-import SearchField from "../SearchField";
+import Input from "../../atoms/Input";
+import Textarea from "../../atoms/Textarea";
+import Button from "../../atoms/Button";
 
 import css from "./AddItem.module.scss";
 
@@ -12,7 +14,18 @@ const AddItemDialogBox = ({ handleClose }) => {
   return (
     <Modal title="Add an Item" closeBtn onClose={handleClose}>
       <Tabs>
-        <Tab title="Folder" labelIcon="folder" active></Tab>
+        <Tab title="Folder" labelIcon="folder" active>
+          <Label title="Name">
+            <Input full />
+          </Label>
+          <Label title="Description">
+            <Textarea full />
+          </Label>
+          <div className="btnPanel">
+            <Button type="primary">Add</Button>
+            <Button onClick={handleClose}>Cancel</Button>
+          </div>
+        </Tab>
         <Tab title="File" labelIcon="photo-video">
           File
         </Tab>
