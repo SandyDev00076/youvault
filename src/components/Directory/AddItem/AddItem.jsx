@@ -29,7 +29,14 @@ const AddItemDialogBox = ({ handleClose }) => {
           </div>
         </Tab>
         <Tab title="File" labelIcon="photo-video">
-          File
+          <SourceFolder full title="Where" />
+          <Label title="Name">
+            <Input full />
+          </Label>
+          <div className="btnPanel">
+            <Button type="primary">Add</Button>
+            <Button onClick={handleClose}>Cancel</Button>
+          </div>
         </Tab>
       </Tabs>
     </Modal>
