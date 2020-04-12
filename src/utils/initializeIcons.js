@@ -13,7 +13,7 @@ import {
   faExclamationCircle,
   faHome,
   faTimes,
-  faPlus
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 function initializeIcons() {
