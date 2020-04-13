@@ -1,3 +1,29 @@
+@use '../../styles/variables' as *;
+
 .directory {
   padding: 16px 32px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.folderDetails {
+  padding: 16px;
+  border-radius: 10px;
+  background-color: $primary-light-7;
+  color: $primary;
+}
+
+.folderName {
+  font-size: 20px;
+  font-weight: bold;
+  color: $primary-light-1;
+  cursor: default;
+}
+
+.parents {
+  font-size: 14px;
+  margin-right: 5px;
 }

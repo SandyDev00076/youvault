@@ -6,9 +6,9 @@ const useFolderDetails = (folderID) => {
 
   function getFolderPath(folders, folderID) {
     let path = [];
-    function getPath(folderID) {
-      const fol = folders.find((folder) => folder.id === folderID);
-      if (!fol.parent) return;
+    function getPath(id) {
+      const fol = folders.find((folder) => folder.id === id);
+      if (fol.parent === "/") return;
       path.push({
         name: fol.name,
         id: fol.id,
