@@ -1,6 +1,12 @@
 {
   "data": [
     {
+      "id": "/",
+      "type": "folder",
+      "name": "Home",
+      "description": "This is the root folder."
+    },
+    {
       "id": "almanac-1",
       "type": "folder",
       "name": "Test Folder",

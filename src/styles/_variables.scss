@@ -1,13 +1,20 @@
-$grey-shade-1: rgb(51, 51, 51);
-$grey-shade-2: rgb(95, 95, 95);
+$primary: #2d3142; // gunmetal
 
-/* New color palette */
-$color-1-lightest: #e9f2f8;
-$color-1-lighter: #b7d0e3;
-$color-1-light: #5d95c0;
-$color-1: #397eb3;
-$color-1-dark: #2f6893;
-$color-1-darker: #255172;
-$color-1-darkest: #1a3a52;
+// light shades of primary
+$primary-light: lighten($primary, 10%);
+$primary-light-1: lighten($primary, 20%);
+$primary-light-2: lighten($primary, 30%);
+$primary-light-3: lighten($primary, 40%);
+$primary-light-4: lighten($primary, 50%);
+$primary-light-5: lighten($primary, 60%);
+$primary-light-6: lighten($primary, 70%);
+$primary-light-7: lighten($primary, 80%);
+$primary-light-8: lighten($primary, 90%);
 
-$background-color: #fdfeff;
+// dark shades of primary
+$primary-dark: darken($primary, 10%);
+$primary-dark-1: darken($primary, 20%);
+$primary-dark-2: darken($primary, 30%);
+$primary-dark-3: darken($primary, 40%);
+$primary-dark-4: darken($primary, 50%);
+$primary-dark-5: darken($primary, 60%);
