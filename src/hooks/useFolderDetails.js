@@ -2,19 +2,32 @@ import { useEffect, useState } from "react";
 import { getFolders, getFiles } from "../api/directory.Api";
 
 const useFolderDetails = (folderID) => {
-  const [folderDetails, setFolderDetails] = useState({});
+  const [folderDetails, setFolderDetails] = useState({
+    folders: [],
+    files: [],
+    description: "",
+    path: [],
+    folderName: "",
+  });
 
   function getFolderPath(folders, folderID) {
     let path = [];
     function getPath(id) {
-      const fol = folders.find((folder) => folder.id === id);
-      if (fol.parent === "/") return;
+      // find parent of folder with folderID.
+      const folderParentID = folders.find((folder) => folder.id === id).parent;
+      // find parent folder name
+      const folderParentName = folders.find(
+        (folder) => folder.id === folderParentID
+      ).name;
       path.push({
-        name: fol.name,
-        id: fol.id,
+        name: folderParentName,
+        id: folderParentID,
       });
-      getPath(fol.parent);
+      if (folderParentID === "/") return;
+      getPath(folderParentID);
     }
+    // if folderID passed is HOME
+    if (folderID === "/") return [];
     getPath(folderID);
     return path.reverse();
   }
@@ -24,8 +37,7 @@ const useFolderDetails = (folderID) => {
       const folders = await getFolders();
       const currentFolder = folders.find((folder) => folder.id === folderID);
       let folderName = currentFolder.name ?? "Home";
-      let description =
-        currentFolder.description ?? "No description found for this folder.";
+      let description = currentFolder.description ?? "--";
       let folderArray = folders.filter((folder) => folder.parent === folderID);
       let path = getFolderPath(folders, folderID);
 

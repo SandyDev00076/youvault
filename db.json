@@ -3,15 +3,22 @@
     {
       "id": "/",
       "type": "folder",
-      "name": "Home",
-      "description": "This is the root folder."
+      "name": "Home"
     },
     {
       "id": "almanac-1",
       "type": "folder",
       "name": "Test Folder",
-      "description": "A folder created to test the structure.",
+      "description": "A folder created to test the structure, with a very long description.",
       "date_created": "25/01/2020",
+      "parent": "/"
+    },
+    {
+      "id": "almanac-8",
+      "type": "folder",
+      "name": "New Folder",
+      "description": "New folder created just now.",
+      "date_created": "14/04/2020",
       "parent": "/"
     },
     {
@@ -62,7 +69,6 @@
       "id": "almanac-7",
       "type": "folder",
       "name": "Things That I used to like",
-      "description": "Just some Random videos",
       "date_created": "25/01/2020",
       "parent": "almanac-1"
     }

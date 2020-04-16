@@ -1,0 +1,10 @@
+@use '../../../styles/variables' as *;
+
+.link {
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: $primary-dark;
+  }
+}

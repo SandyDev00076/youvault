@@ -7,6 +7,7 @@
 .topBar {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 32px;
 }
 
 .folderDetails {
@@ -23,7 +24,129 @@
   cursor: default;
 }
 
-.parents {
+.folderDesc {
+  margin-top: 15px;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid $primary-light-6;
+  color: $primary-light;
   font-size: 14px;
+  text-align: center;
+}
+
+.parents {
+  font-size: 12px;
+  color: $primary-light;
   margin-right: 5px;
+}
+
+.goUp {
+  border: none;
+  height: 24px;
+  width: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 12px;
+  background-color: $primary-light-1;
+  color: white;
+  margin-right: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-light;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: $primary-light-3;
+    cursor: default;
+  }
+}
+
+.sectionStyle {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 32px;
+}
+
+.sectionHeader {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: default;
+
+  & > h2 {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.sectionAddButton {
+  background-color: inherit;
+  text-transform: uppercase;
+  color: inherit;
+  font-family: inherit;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.folderSection {
+  @extend .sectionStyle;
+  background-color: $folder-light-4;
+  color: $folder;
+}
+
+.folders {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.folder {
+  padding: 8px;
+  border: 2px solid $folder-light;
+  border-radius: 5px;
+  color: $folder;
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $folder-light;
+  }
+}
+
+.addFolder {
+  @extend .sectionAddButton;
+  &:hover {
+    color: $folder-dark;
+  }
+}
+
+.fileSection {
+  @extend .sectionStyle;
+  background-color: $file-light-4;
+  color: $file;
+}
+
+.addFile {
+  @extend .sectionAddButton;
+  &:hover {
+    color: $file-dark;
+  }
 }
