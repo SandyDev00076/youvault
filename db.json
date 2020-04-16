@@ -71,6 +71,15 @@
       "name": "Things That I used to like",
       "date_created": "25/01/2020",
       "parent": "almanac-1"
+    },
+    {
+      "id": "almanac-9",
+      "type": "website",
+      "name": "My Clipboard",
+      "description": "I made this App",
+      "date_created": "16/04/2020",
+      "url": "https://my-clipboard.co.in",
+      "parent": "almanac-1"
     }
   ]
 }

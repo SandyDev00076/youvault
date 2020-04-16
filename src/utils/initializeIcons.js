@@ -14,6 +14,11 @@ import {
   faHome,
   faTimes,
   faPlus,
+  faImage,
+  faFileAlt,
+  faNewspaper,
+  faWindowMaximize,
+  faIdBadge,
 } from "@fortawesome/free-solid-svg-icons";
 
 function initializeIcons() {
@@ -31,7 +36,12 @@ function initializeIcons() {
     faExclamationCircle,
     faHome,
     faTimes,
-    faPlus
+    faPlus,
+    faImage,
+    faFileAlt,
+    faNewspaper,
+    faWindowMaximize,
+    faIdBadge
   );
 }
 

@@ -4,6 +4,7 @@ import useFolderDetails from "../../hooks/useFolderDetails";
 import Link from "../atoms/Link";
 import { useParams, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import File from "../File";
 
 import css from "./Directory.module.scss";
 
@@ -99,6 +100,11 @@ const Directory = () => {
               <FontAwesomeIcon icon="plus" style={{ marginRight: "5px" }} />
               Add
             </button>
+          </div>
+          <div className={css.files}>
+            {files.map((file) => (
+              <File file={file} key={file.id} />
+            ))}
           </div>
         </section>
       )}
