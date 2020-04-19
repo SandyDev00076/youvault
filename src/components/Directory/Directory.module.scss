@@ -13,14 +13,14 @@
 .folderDetails {
   padding: 16px;
   border-radius: 10px;
-  background-color: $primary-light-7;
+  background-color: $primary-light-6;
   color: $primary;
 }
 
 .folderName {
   font-size: 20px;
   font-weight: bold;
-  color: $primary-light-1;
+  color: $primary-light;
   cursor: default;
 }
 
@@ -106,8 +106,8 @@
 
 .folderSection {
   @extend .sectionStyle;
-  background-color: $folder-light-4;
-  color: $folder;
+  background-color: $secondary-light-6;
+  color: $secondary;
 }
 
 .folders {
@@ -119,36 +119,36 @@
 
 .folder {
   padding: 8px;
-  border: 2px solid $folder-light;
+  box-shadow: 0 0 2px $secondary-dark;
   border-radius: 5px;
-  color: $folder;
+  color: $secondary-dark;
   font-size: 15px;
   text-align: center;
   font-weight: bold;
   &:hover {
     text-decoration: none;
     color: white;
-    background-color: $folder-light;
+    background-color: $secondary-light;
   }
 }
 
 .addFolder {
   @extend .sectionAddButton;
   &:hover {
-    color: $folder-dark;
+    color: $secondary-dark;
   }
 }
 
 .fileSection {
   @extend .sectionStyle;
-  background-color: $file-light-6;
-  color: $file;
+  background-color: $primary-light-6;
+  color: $primary;
 }
 
 .addFile {
   @extend .sectionAddButton;
   &:hover {
-    color: $file-dark;
+    color: $primary-dark;
   }
 }
 

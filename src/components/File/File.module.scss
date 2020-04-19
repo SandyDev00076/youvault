@@ -5,23 +5,24 @@
   border-radius: 10px;
   display: flex;
   align-items: flex-start;
-  background-color: $file-light-3;
+  border: 1px solid $primary-light-5;
   cursor: pointer;
 
   &:hover {
-    background-color: $file-light-2;
+    background-color: $primary-light;
 
     .fileType {
-      color: $file-dark;
+      color: white;
     }
 
     .fileName,
     .fileDesc {
-      color: $file-dark-3;
+      color: white;
     }
 
     .fileImage {
       opacity: 1;
+      box-shadow: 0 0 2px white;
     }
   }
 }
@@ -34,16 +35,13 @@
   opacity: 0.7;
 }
 
-.fileDetails {
-}
-
 .fileType {
   display: flex;
   align-items: center;
   padding-bottom: 3px;
   margin-bottom: 3px;
-  color: $file-light;
-  border-bottom: 1px solid $file-light-1;
+  color: $primary-light;
+  border-bottom: 1px solid $primary-light-1;
   width: max-content;
 }
 
@@ -59,12 +57,12 @@
 }
 
 .fileName {
-  color: $file-dark;
+  color: $primary-dark;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
 .fileDesc {
-  color: $file-light;
+  color: $primary-light;
   font-size: 12px;
 }

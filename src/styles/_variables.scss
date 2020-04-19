@@ -1,15 +1,14 @@
-$primary: #2d3142; // gunmetal
-$folder: #ee5622; // flame
-$file: #3cb39d;
+$primary: #a026ff; // gunmetal
+$secondary: #ff33d5; // flame
 
 // light shades of primary
-$primary-light: lighten($primary, 10%);
-$primary-light-1: lighten($primary, 20%);
-$primary-light-2: lighten($primary, 30%);
-$primary-light-3: lighten($primary, 40%);
+$primary-light: #a733ff;
+$primary-light-1: #b352fd;
+$primary-light-2: #c375ff;
+$primary-light-3: #d5a2fc;
 $primary-light-4: lighten($primary, 50%);
-$primary-light-5: lighten($primary, 60%);
-$primary-light-6: lighten($primary, 70%);
+$primary-light-5: #ead7fc;
+$primary-light-6: #fbf7ff;
 $primary-light-7: lighten($primary, 75%);
 $primary-light-8: lighten($primary, 78%);
 
@@ -22,39 +21,20 @@ $primary-dark-4: darken($primary, 50%);
 $primary-dark-5: darken($primary, 60%);
 
 // light shades of folder
-$folder-light: lighten($folder, 10%);
-$folder-light-1: lighten($folder, 20%);
-$folder-light-2: lighten($folder, 30%);
-$folder-light-3: lighten($folder, 40%);
-$folder-light-4: lighten($folder, 44%);
-$folder-light-5: lighten($folder, 48%);
-$folder-light-6: lighten($folder, 50%);
-$folder-light-7: lighten($folder, 55%);
-$folder-light-8: lighten($folder, 59%);
+$secondary-light: lighten($secondary, 10%);
+$secondary-light-1: lighten($secondary, 20%);
+$secondary-light-2: lighten($secondary, 30%);
+$secondary-light-3: lighten($secondary, 40%);
+$secondary-light-4: lighten($secondary, 44%);
+$secondary-light-5: lighten($secondary, 48%);
+$secondary-light-6: #fff8fd; // section background color
+$secondary-light-7: lighten($secondary, 55%);
+$secondary-light-8: lighten($secondary, 59%);
 
 // dark shades of folder
-$folder-dark: darken($folder, 10%);
-$folder-dark-1: darken($folder, 20%);
-$folder-dark-2: darken($folder, 30%);
-$folder-dark-3: darken($folder, 40%);
-$folder-dark-4: darken($folder, 50%);
-$folder-dark-5: darken($folder, 60%);
-
-// light shades of file
-$file-light: lighten($file, 10%);
-$file-light-1: lighten($file, 20%);
-$file-light-2: lighten($file, 30%);
-$file-light-3: lighten($file, 40%);
-$file-light-4: lighten($file, 44%);
-$file-light-5: lighten($file, 48%);
-$file-light-6: lighten($file, 50%);
-$file-light-7: lighten($file, 55%);
-$file-light-8: lighten($file, 59%);
-
-// dark shades of file
-$file-dark: darken($file, 10%);
-$file-dark-1: darken($file, 20%);
-$file-dark-2: darken($file, 30%);
-$file-dark-3: darken($file, 40%);
-$file-dark-4: darken($file, 50%);
-$file-dark-5: darken($file, 60%);
+$secondary-dark: #e003b4;
+$secondary-dark-1: darken($secondary, 20%);
+$secondary-dark-2: darken($secondary, 30%);
+$secondary-dark-3: darken($secondary, 40%);
+$secondary-dark-4: darken($secondary, 50%);
+$secondary-dark-5: darken($secondary, 60%);
