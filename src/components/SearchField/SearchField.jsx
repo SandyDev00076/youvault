@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
 import css from "./SearchField.module.scss";
+import useSearchQuery from "../../hooks/useSearchQuery";
 
 const SearchField = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const { searchResult } = useSearchQuery({ query: searchQuery });
+  console.log(searchResult);
 
   return (
     <div className={css.searchWrapper}>

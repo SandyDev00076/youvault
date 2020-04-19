@@ -8,9 +8,10 @@ const useSearchQuery = ({ query = "" }) => {
       try {
         const everything = await getAll();
         let result = everything
-          .filter((item) =>
-            item.name.toLowerCase().contains(query.toLowerCase())
-          )
+          .filter((item) => {
+            let itemName = item.name ?? "";
+            return itemName.toLowerCase().includes(query.toLowerCase());
+          })
           .map((item) => {
             return {
               name: item.name,
@@ -25,11 +26,10 @@ const useSearchQuery = ({ query = "" }) => {
       }
     }
     if (query !== "") getAllRecords();
-    else setResult([]);
   }, [query]);
 
   return {
-    searchResult: result,
+    searchResult: query !== "" ? result : [],
   };
 };
 
