@@ -5,6 +5,7 @@ import Link from "../atoms/Link";
 import { useParams, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import File from "../File";
+import SearchField from "../SearchField";
 
 import css from "./Directory.module.scss";
 
@@ -40,9 +41,12 @@ const TopBar = ({ folderName, path, description }) => {
           <span className={css.folderName}>{folderName}</span>
         </div>
         {description !== "--" && (
-          <div className={css.folderDesc}>{description}</div>
+          <div className={css.folderDesc}>
+            <strong>About</strong>: {description}
+          </div>
         )}
       </div>
+      <SearchField />
     </div>
   );
 };

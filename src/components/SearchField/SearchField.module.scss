@@ -1,0 +1,17 @@
+@use '../../styles/variables' as *;
+
+.searchField {
+  border: 1px solid $primary-light-4;
+  background-color: $primary-light-6;
+  font-family: inherit;
+  padding: 10px;
+  font-size: 18px;
+  width: 250px;
+  border-radius: 10px;
+  color: $primary-dark;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-dark;
+  }
+}
