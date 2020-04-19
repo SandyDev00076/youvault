@@ -17,6 +17,9 @@ const fileTypeUtils = {
   contact: {
     icon: "id-badge",
   },
+  folder: {
+    icon: "folder",
+  },
 };
 
 export default fileTypeUtils;

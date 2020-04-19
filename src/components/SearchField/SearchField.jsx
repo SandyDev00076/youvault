@@ -2,11 +2,13 @@ import React, { useState } from "react";
 
 import css from "./SearchField.module.scss";
 import useSearchQuery from "../../hooks/useSearchQuery";
+import Link from "../atoms/Link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import fileTypeUtils from "../../utils/fileTypes";
 
 const SearchField = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const { searchResult } = useSearchQuery({ query: searchQuery });
-  console.log(searchResult);
 
   return (
     <div className={css.searchWrapper}>
@@ -16,7 +18,27 @@ const SearchField = () => {
         value={searchQuery}
         onChange={(evt) => setSearchQuery(evt.target.value)}
       />
-      {searchQuery && <div className={css.searchDropdown}></div>}
+      {searchQuery && (
+        <div className={css.searchDropdown}>
+          {searchResult.map((item, index) => (
+            <Link
+              key={index}
+              to={`/folders/${item.idToGoto !== "/" ? item.idToGoto : ""}`}
+              className={css.searchDropdownItem}
+              onClick={() => setSearchQuery("")}
+            >
+              <div className={css.itemDetails}>
+                <FontAwesomeIcon
+                  icon={fileTypeUtils[item.type].icon}
+                  className={css.itemTypeIcon}
+                />
+                <div className={css.itemType}>{item.type}</div>
+              </div>
+              <div className={css.itemName}>{item.name}</div>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
