@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-import css from "./SearchField.module.scss";
 import useSearchQuery from "../../hooks/useSearchQuery";
 import Link from "../atoms/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import fileTypeUtils from "../../utils/fileTypes";
+
+import css from "./SearchField.module.scss";
 
 const SearchField = () => {
   const [searchQuery, setSearchQuery] = useState("");

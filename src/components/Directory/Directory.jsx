@@ -2,67 +2,19 @@ import React from "react";
 
 import useFolderDetails from "../../hooks/useFolderDetails";
 import Link from "../atoms/Link";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import File from "../File";
-import SearchField from "../SearchField";
+import TopBar from "./TopBar";
+import EmptyState from "./EmptyState";
 
 import css from "./Directory.module.scss";
 
-const TopBar = ({ folderName, path, description }) => {
-  const history = useHistory();
-  return (
-    <div className={css.topBar}>
-      <div className={css.folderDetails}>
-        <div className={css.path}>
-          <button
-            className={css.goUp}
-            disabled={path.length === 0}
-            onClick={() => {
-              history.push(
-                `/folders/${
-                  path[path.length - 1].id !== "/"
-                    ? path[path.length - 1].id
-                    : ""
-                }`
-              );
-            }}
-          >
-            <FontAwesomeIcon icon="arrow-left" />
-          </button>
-          {path.map((folder) => (
-            <span key={folder.id} className={css.parents}>
-              <Link to={`/folders/${folder.id !== "/" ? folder.id : ""}`}>
-                {folder.name}
-              </Link>{" "}
-              /
-            </span>
-          ))}
-          <span className={css.folderName}>{folderName}</span>
-        </div>
-        {description !== "--" && (
-          <div className={css.folderDesc}>
-            <strong>About</strong>: {description}
-          </div>
-        )}
-      </div>
-      <SearchField />
-    </div>
-  );
-};
+const Content = ({ files, folders }) => {
+  if (files.length === 0 && folders.length === 0) return <EmptyState />;
 
-const Directory = () => {
-  const { id } = useParams();
-  const {
-    folderName,
-    description,
-    files,
-    folders,
-    path = [],
-  } = useFolderDetails(id ?? "/");
   return (
-    <section className={css.directory}>
-      <TopBar folderName={folderName} path={path} description={description} />
+    <>
       {/* Folder section */}
       {folders.length !== 0 && (
         <section className={css.folderSection}>
@@ -112,6 +64,23 @@ const Directory = () => {
           </div>
         </section>
       )}
+    </>
+  );
+};
+
+const Directory = () => {
+  const { id } = useParams();
+  const {
+    folderName,
+    description,
+    files,
+    folders,
+    path = [],
+  } = useFolderDetails(id ?? "/");
+  return (
+    <section className={css.directory}>
+      <TopBar folderName={folderName} path={path} description={description} />
+      <Content files={files} folders={folders} />
     </section>
   );
 };

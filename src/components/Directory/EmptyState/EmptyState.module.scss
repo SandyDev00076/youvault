@@ -1,0 +1,29 @@
+@use '../../../styles/variables' as *;
+
+.emptyUI {
+  padding: 32px;
+  text-align: center;
+}
+
+.line1 {
+  font-size: 54px;
+  text-shadow: 0 0 3px $primary;
+  font-weight: bold;
+  color: $primary;
+  margin-bottom: 5px;
+}
+
+.line2 {
+  font-size: 24px;
+  color: $secondary-light;
+
+  & > .add {
+    color: $secondary-dark;
+    cursor: pointer;
+
+    &:hover {
+      color: $secondary-dark-2;
+      text-decoration: underline $secondary-dark-2;
+    }
+  }
+}
