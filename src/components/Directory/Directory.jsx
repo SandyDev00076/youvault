@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import useFolderDetails from "../../hooks/useFolderDetails";
 import Link from "../atoms/Link";
@@ -10,7 +10,34 @@ import EmptyState from "./EmptyState";
 
 import css from "./Directory.module.scss";
 
-const Content = ({ files, folders }) => {
+/* Filters files based on type */
+const FileFilters = ({ fileTypes = [], onFilterChange }) => {
+  const [selectedType, selectType] = useState("");
+
+  function setFilter(filter) {
+    selectType(filter);
+    onFilterChange(filter);
+  }
+
+  return (
+    <div className={css.fileFilters}>
+      {fileTypes.map((filter) => (
+        <div
+          key={filter}
+          className={`${css.fileFilter} ${
+            filter === selectedType && css.filterSelected
+          }`}
+          onClick={() => setFilter(filter)}
+        >
+          {filter.length !== 0 ? filter : "All"}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+/* Content component for Directory */
+const Content = ({ files, folders, fileTypes, onFilterChange }) => {
   if (files.length === 0 && folders.length === 0) return <EmptyState />;
 
   return (
@@ -45,12 +72,16 @@ const Content = ({ files, folders }) => {
       {files.length !== 0 && (
         <section className={css.fileSection}>
           <div className={css.sectionHeader}>
-            <h2>
+            <h2 className={css.filesTitle}>
               <FontAwesomeIcon
                 icon="photo-video"
                 style={{ marginRight: "10px" }}
               />
               Files
+              <FileFilters
+                fileTypes={fileTypes}
+                onFilterChange={(filter) => onFilterChange(filter)}
+              />
             </h2>
             <button className={css.addFile}>
               <FontAwesomeIcon icon="plus" style={{ marginRight: "5px" }} />
@@ -68,19 +99,27 @@ const Content = ({ files, folders }) => {
   );
 };
 
+/* Directory component */
 const Directory = () => {
   const { id } = useParams();
+  const [fileFilter, setFileFilter] = useState("");
   const {
     folderName,
     description,
     files,
     folders,
     path = [],
-  } = useFolderDetails(id ?? "/");
+    fileTypes,
+  } = useFolderDetails(id ?? "/", { fileType: fileFilter });
   return (
     <section className={css.directory}>
       <TopBar folderName={folderName} path={path} description={description} />
-      <Content files={files} folders={folders} />
+      <Content
+        files={files}
+        folders={folders}
+        fileTypes={fileTypes}
+        onFilterChange={(filter) => setFileFilter(filter)}
+      />
     </section>
   );
 };

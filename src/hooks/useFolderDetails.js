@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { getFolders, getFiles } from "../api/directory.Api";
 
-const useFolderDetails = (folderID) => {
+const useFolderDetails = (folderID, { fileType = "" }) => {
   const [folderDetails, setFolderDetails] = useState({
     folders: [],
     files: [],
     description: "",
     path: [],
     folderName: "",
+    fileTypes: [],
   });
 
   function getFolderPath(folders, folderID) {
@@ -44,16 +45,25 @@ const useFolderDetails = (folderID) => {
       const files = await getFiles();
       let fileArray = files.filter((file) => file.parent === folderID);
 
+      let set = new Set();
+      set.add(""); // for All option
+      fileArray.forEach((file) => set.add(file.type));
+      let fileTypeArray = Array.from(set);
+
+      if (fileType !== "")
+        fileArray = fileArray.filter((file) => file.type === fileType);
+
       setFolderDetails({
         folderName,
         path,
         description,
         folders: folderArray,
         files: fileArray,
+        fileTypes: fileTypeArray,
       });
     }
     getRecords();
-  }, [folderID]);
+  }, [fileType, folderID]);
 
   return folderDetails;
 };
