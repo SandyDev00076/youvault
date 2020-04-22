@@ -15,6 +15,15 @@ const TopBar = ({ folderName, path, description }) => {
         <div className={css.path}>
           <button
             className={css.goUp}
+            disabled={history.length <= 1}
+            onClick={() => {
+              history.goBack();
+            }}
+          >
+            <FontAwesomeIcon icon="arrow-left" />
+          </button>
+          <button
+            className={css.goUp}
             disabled={path.length === 0}
             onClick={() => {
               history.push(
@@ -26,7 +35,7 @@ const TopBar = ({ folderName, path, description }) => {
               );
             }}
           >
-            <FontAwesomeIcon icon="arrow-left" />
+            <FontAwesomeIcon icon="arrow-up" />
           </button>
           {path.map((folder) => (
             <span key={folder.id} className={css.parents}>

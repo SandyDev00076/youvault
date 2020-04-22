@@ -8,8 +8,8 @@ const EmptyState = () => {
       <div className={css.line1}>Nothing Here!</div>
       <div className={css.line2}>
         {/* TODO: Open a modal for adding a file/folder here. */}
-        <span className={css.add}>Add a file</span> or{" "}
-        <span className={css.add}>add a folder</span> here.
+        Add <span className={css.add}>a file</span> or{" "}
+        <span className={css.add}>a folder</span> here.
       </div>
     </div>
   );
