@@ -9,6 +9,7 @@ import TopBar from "./TopBar";
 import EmptyState from "./EmptyState";
 
 import css from "./Directory.module.scss";
+import Folder from "../Folder";
 
 /* Filters files based on type */
 const FileFilters = ({ fileTypes = [], onFilterChange }) => {
@@ -57,13 +58,7 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
           </div>
           <div className={css.folders}>
             {folders.map((folder) => (
-              <Link
-                to={`/folders/${folder.id}`}
-                key={folder.id}
-                className={css.folder}
-              >
-                {folder.name}
-              </Link>
+              <Folder folder={folder} key={folder.id} />
             ))}
           </div>
         </section>
@@ -78,10 +73,12 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
                 style={{ marginRight: "10px" }}
               />
               Files
-              <FileFilters
-                fileTypes={fileTypes}
-                onFilterChange={(filter) => onFilterChange(filter)}
-              />
+              {fileTypes.length > 1 && (
+                <FileFilters
+                  fileTypes={fileTypes}
+                  onFilterChange={(filter) => onFilterChange(filter)}
+                />
+              )}
             </h2>
             <button className={css.addFile}>
               <FontAwesomeIcon icon="plus" style={{ marginRight: "5px" }} />

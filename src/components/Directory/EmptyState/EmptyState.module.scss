@@ -1,13 +1,13 @@
 @use '../../../styles/variables' as *;
 
 .emptyUI {
-  padding: 32px;
+  padding: 48px;
   text-align: center;
 }
 
 .line1 {
   font-size: 54px;
-  text-shadow: 0 0 3px $primary;
+  text-shadow: 0 0 2px $primary;
   font-weight: bold;
   color: $primary;
   margin-bottom: 5px;

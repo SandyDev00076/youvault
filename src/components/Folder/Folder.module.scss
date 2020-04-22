@@ -1,0 +1,16 @@
+@use '../../styles/variables' as *;
+
+.folder {
+  padding: 8px;
+  box-shadow: 0 0 2px $secondary-dark;
+  border-radius: 5px;
+  color: $secondary-dark;
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $secondary-light;
+  }
+}
