@@ -1,0 +1,46 @@
+@use '../../styles/variables' as *;
+
+.contextMenu {
+  position: absolute;
+  background-color: white;
+  border: 2px solid $primary-light-2;
+  border-radius: 0 8px 8px 8px;
+  max-width: 180px;
+  overflow: hidden;
+}
+
+.contextMenuOption {
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: $primary;
+  background-color: $primary-light-6;
+  padding: 8px 5px;
+
+  &:hover {
+    background-color: $primary-light-5;
+  }
+}
+
+.optionIcon {
+  width: 35px;
+  text-align: center;
+}
+
+.option {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.title {
+  color: $primary-light-2;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid $primary-light-2;
+  cursor: default;
+  font-size: 14px;
+  font-weight: bold;
+}

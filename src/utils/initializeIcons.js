@@ -20,6 +20,8 @@ import {
   faWindowMaximize,
   faIdBadge,
   faArrowUp,
+  faFolderOpen,
+  faCut,
 } from "@fortawesome/free-solid-svg-icons";
 
 function initializeIcons() {
@@ -43,7 +45,9 @@ function initializeIcons() {
     faNewspaper,
     faWindowMaximize,
     faIdBadge,
-    faArrowUp
+    faArrowUp,
+    faFolderOpen,
+    faCut
   );
 }
 

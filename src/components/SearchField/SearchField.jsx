@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import fileTypeUtils from "../../utils/fileTypes";
 
 import css from "./SearchField.module.scss";
+import Backdrop from "../Backdrop";
 
 const SearchField = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -35,10 +36,7 @@ const SearchField = () => {
       )}
       {dropdownVisibility && searchQuery && (
         <>
-          <div
-            className={css.backgroundDiv}
-            onClick={() => setDropdownVisibility(false)}
-          ></div>
+          <Backdrop onBackdropClick={() => setDropdownVisibility(false)} />
           <div className={css.searchDropdown}>
             {searchResult.map((item, index) => (
               <Link
