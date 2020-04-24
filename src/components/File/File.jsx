@@ -3,9 +3,15 @@ import React, { useState } from "react";
 import fileUtils from "../../utils/fileTypes";
 import yt from "youtube-thumbnail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ContextMenu, { ContextMenuOption } from "../ContextMenu";
+import useContextMenu from "../../hooks/useContextMenu";
 
 import css from "./File.module.scss";
-import ContextMenu from "../ContextMenu";
+
+// Helper functions
+function openInNewTab(url) {
+  window.open(url, "_blank");
+}
 
 const FileHeader = ({ type }) => {
   return (
@@ -22,12 +28,8 @@ const FileHeader = ({ type }) => {
 const Video = ({ file }) => {
   const { url, name, description } = file;
 
-  function openVideo() {
-    window.open(url, "_blank");
-  }
-
   return (
-    <div className={css.file} onClick={openVideo}>
+    <div className={css.file} onClick={() => openInNewTab(url)}>
       <img src={yt(url).default.url} alt={name} className={css.fileImage} />
       <div className={css.fileDetails}>
         <FileHeader type={"video"} />
@@ -41,12 +43,8 @@ const Video = ({ file }) => {
 const Article = ({ file }) => {
   const { url, name, description } = file;
 
-  function openArticle() {
-    window.open(url, "_blank");
-  }
-
   return (
-    <div className={css.file} onClick={openArticle}>
+    <div className={css.file} onClick={() => openInNewTab(url)}>
       <img
         src={"https://dummyimage.com/120x90/949494/fff"}
         alt={name}
@@ -64,12 +62,8 @@ const Article = ({ file }) => {
 const Website = ({ file }) => {
   const { url, name, description } = file;
 
-  function openWebsite() {
-    window.open(url, "_blank");
-  }
-
   return (
-    <div className={css.file} onClick={openWebsite}>
+    <div className={css.file} onClick={() => openInNewTab(url)}>
       <img
         src={"https://dummyimage.com/120x90/949494/fff"}
         alt={name}
@@ -97,31 +91,75 @@ function getFile(file) {
   }
 }
 
+function getFileOption(file) {
+  const { url, type } = file;
+  switch (type) {
+    case "article":
+      return (
+        <ContextMenuOption
+          icon={fileUtils.article.icon}
+          option="Read"
+          onSelect={() => openInNewTab(url)}
+        />
+      );
+    case "video":
+      return (
+        <ContextMenuOption
+          icon={fileUtils.video.icon}
+          option="Watch"
+          onSelect={() => openInNewTab(url)}
+        />
+      );
+    case "website":
+      return (
+        <ContextMenuOption
+          icon={fileUtils.website.icon}
+          option="Visit"
+          onSelect={() => openInNewTab(url)}
+        />
+      );
+    default:
+      return <div></div>;
+  }
+}
+
 const File = ({ file }) => {
-  const [contextMenu, setContextMenu] = useState(() => null);
-
-  function openContextMenu(evt) {
-    evt.preventDefault();
-    setContextMenu({
-      x: evt.clientX,
-      y: evt.clientY,
-    });
-  }
-
-  function closeContextMenu() {
-    setContextMenu(null);
-  }
+  const {
+    xCoord,
+    yCoord,
+    showMenu,
+    openContextMenu,
+    closeContextMenu,
+  } = useContextMenu();
 
   return (
     <div onContextMenu={openContextMenu}>
       {getFile(file)}
-      {contextMenu && (
+      {showMenu && (
         <ContextMenu
-          x={contextMenu.x}
-          y={contextMenu.y}
+          x={xCoord}
+          y={yCoord}
           handleClose={closeContextMenu}
           title={file.name}
-        ></ContextMenu>
+        >
+          {getFileOption(file)}
+          <ContextMenuOption
+            icon="cut"
+            option="Move"
+            onSelect={() => {
+              // TODO: Add modal for moving the file
+              console.log("moving the file");
+            }}
+          />
+          <ContextMenuOption
+            icon="trash"
+            option="Delete"
+            onSelect={() => {
+              // TODO: Add logic for deleting a file
+              console.log("deleting the file");
+            }}
+          />
+        </ContextMenu>
       )}
     </div>
   );

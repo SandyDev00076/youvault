@@ -1,26 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Link from "../atoms/Link";
 import { useHistory } from "react-router-dom";
 import ContextMenu, { ContextMenuOption } from "../ContextMenu";
+import useContextMenu from "../../hooks/useContextMenu";
 
 import css from "./Folder.module.scss";
 
 const Folder = ({ folder }) => {
   const history = useHistory();
-  const [contextMenu, setContextMenu] = useState(() => null);
-
-  function openContextMenu(evt) {
-    evt.preventDefault();
-    setContextMenu({
-      x: evt.clientX,
-      y: evt.clientY,
-    });
-  }
-
-  function closeContextMenu() {
-    setContextMenu(null);
-  }
+  const {
+    xCoord,
+    yCoord,
+    showMenu,
+    openContextMenu,
+    closeContextMenu,
+  } = useContextMenu();
 
   return (
     <>
@@ -32,10 +27,10 @@ const Folder = ({ folder }) => {
         {folder.name}
       </Link>
       {/* Context Menu for Folders */}
-      {contextMenu && (
+      {showMenu && (
         <ContextMenu
-          x={contextMenu.x}
-          y={contextMenu.y}
+          x={xCoord}
+          y={yCoord}
           handleClose={closeContextMenu}
           title={folder.name}
         >

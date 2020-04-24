@@ -17,7 +17,10 @@ const useContextMenu = () => {
   }
 
   function closeContextMenu() {
-    setContextMenu(null);
+    setContextMenu({
+      x: null,
+      y: null,
+    });
   }
 
   return {
@@ -28,3 +31,5 @@ const useContextMenu = () => {
     closeContextMenu,
   };
 };
+
+export default useContextMenu;
