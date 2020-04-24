@@ -17,6 +17,7 @@
   color: $primary;
   background-color: $primary-light-6;
   padding: 8px 5px;
+  user-select: none;
 
   &:hover {
     background-color: $primary-light-5;
@@ -26,10 +27,10 @@
 .optionIcon {
   width: 35px;
   text-align: center;
+  color: $primary-light;
 }
 
 .option {
-  font-weight: bold;
   font-size: 14px;
 }
 

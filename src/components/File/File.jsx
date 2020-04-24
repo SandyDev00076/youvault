@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import fileUtils from "../../utils/fileTypes";
 import yt from "youtube-thumbnail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import css from "./File.module.scss";
+import ContextMenu from "../ContextMenu";
 
 const FileHeader = ({ type }) => {
   return (
@@ -83,7 +84,7 @@ const Website = ({ file }) => {
   );
 };
 
-const File = ({ file }) => {
+function getFile(file) {
   switch (file.type) {
     case "video":
       return <Video file={file} />;
@@ -94,6 +95,36 @@ const File = ({ file }) => {
     default:
       return <div></div>;
   }
+}
+
+const File = ({ file }) => {
+  const [contextMenu, setContextMenu] = useState(() => null);
+
+  function openContextMenu(evt) {
+    evt.preventDefault();
+    setContextMenu({
+      x: evt.clientX,
+      y: evt.clientY,
+    });
+  }
+
+  function closeContextMenu() {
+    setContextMenu(null);
+  }
+
+  return (
+    <div onContextMenu={openContextMenu}>
+      {getFile(file)}
+      {contextMenu && (
+        <ContextMenu
+          x={contextMenu.x}
+          y={contextMenu.y}
+          handleClose={closeContextMenu}
+          title={file.name}
+        ></ContextMenu>
+      )}
+    </div>
+  );
 };
 
 export default File;

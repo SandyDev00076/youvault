@@ -31,6 +31,7 @@ const Folder = ({ folder }) => {
       >
         {folder.name}
       </Link>
+      {/* Context Menu for Folders */}
       {contextMenu && (
         <ContextMenu
           x={contextMenu.x}
