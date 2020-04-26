@@ -1,0 +1,33 @@
+@use '../../styles/variables' as *;
+
+.folderField {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  border-radius: 5px;
+  border: 1px solid $primary;
+  top: 45px;
+  max-height: 400px;
+}
+
+.dropdownItem {
+  width: 250px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  color: $primary;
+  background-color: $primary-light-6;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+    background-color: $primary-light-5;
+  }
+}
+
+.folderName {
+  font-weight: bold;
+}

@@ -7,6 +7,7 @@ import useContextMenu from "../../hooks/useContextMenu";
 
 import css from "./Folder.module.scss";
 import MoveTo from "../Popups/Move";
+import Delete from "../Popups/Delete";
 
 const Folder = ({ folder }) => {
   const history = useHistory();
@@ -18,6 +19,7 @@ const Folder = ({ folder }) => {
     closeContextMenu,
   } = useContextMenu();
   const [movePopup, openMovePopup] = useState(() => false);
+  const [deletePopup, openDeletePopup] = useState(() => false);
 
   return (
     <>
@@ -54,14 +56,18 @@ const Folder = ({ folder }) => {
             icon="trash"
             option="Delete"
             onSelect={() => {
-              // TODO: Add logic for deleting a folder
-              console.log("deleting the folder");
+              openDeletePopup(true);
             }}
           />
         </ContextMenu>
       )}
       {/* Popups */}
-      {movePopup && <MoveTo handleClose={() => openMovePopup(false)} />}
+      {movePopup && (
+        <MoveTo item={folder} handleClose={() => openMovePopup(false)} />
+      )}
+      {deletePopup && (
+        <Delete item={folder} handleClose={() => openDeletePopup(false)} />
+      )}
     </>
   );
 };

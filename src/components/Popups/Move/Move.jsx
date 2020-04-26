@@ -6,14 +6,15 @@ import Label from "../../atoms/Label";
 
 import css from "./Move.module.scss";
 
-const MoveTo = ({ itemID, handleClose }) => {
+const MoveTo = ({ item, handleClose }) => {
   return (
     <Modal>
       <ModalHeading showClose onClose={handleClose}>
         Move To
       </ModalHeading>
       <Label name="Where?">
-        <FolderField />
+        {/* TODO: What to do when a folder is selected */}
+        <FolderField onFolderSelect={(folder) => console.log(folder.name)} />
       </Label>
     </Modal>
   );
