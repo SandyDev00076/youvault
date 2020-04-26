@@ -1,0 +1,47 @@
+API Description
+
+1. Get current folder details -
+
+Request - 
+1. ID - Id of the folder.
+2. fileType - 
+  a. "" - fetch files of all file types
+  b. "<file_type>" - fetch files of type file_type.
+    example - file_type = article should fetch all files of type article.
+
+Response -
+An object containing -
+1. folderName - name of the folder,
+2. path - [] containing names of folder's parent, self excluded,
+3. description - description of the folder,
+4. folders: [] of folders it contains,
+5. files: [] of files it contains,
+6. fileTypes: [] of file types found in files,
+  example - if we have 2 files of type article and 1 file of type website = fileTypes = ['article', 'website']
+
+2. Search for items
+
+Request -
+1. query - string which need to be matched
+2. filesOnly - true/false depending on if you want a list of files only.
+3. foldersOnly - true/false depending on if you want a list of folders only.
+
+Response -
+searchResult - [] of items matched with the query from ALL (not in a specific folder) files and folders that user has.
+
+3. Moving an item (file/folder)
+
+Request -
+1. ID - Id of item (file/folder) which needs to be moved.
+2. destination - Id of folder where it needs to be moved.
+
+Response -
+Success response
+
+4. Deleting an item (file/folder)
+
+Request -
+ID - Id of item (file/folder) which needs to be deleted.
+
+Response -
+Success response
