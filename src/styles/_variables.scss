@@ -1,5 +1,6 @@
-$primary: #a026ff; // gunmetal
+$primary: #a026ff; // vivid violet
 $secondary: #ff33d5; // flame
+$auxillary: #333; // very dark grey
 
 // light shades of primary
 $primary-light: #a733ff;
@@ -38,3 +39,14 @@ $secondary-dark-2: darken($secondary, 30%);
 $secondary-dark-3: darken($secondary, 40%);
 $secondary-dark-4: darken($secondary, 50%);
 $secondary-dark-5: darken($secondary, 60%);
+
+// light shades of grey
+$auxillary-light: #535353;
+$auxillary-light-1: #686868;
+$auxillary-light-2: #808080;
+$auxillary-light-3: #9c9c9c;
+$auxillary-light-4: #acacac;
+$auxillary-light-5: #c4c4c4;
+$auxillary-light-6: #e2e2e2;
+$auxillary-light-7: #f3f3f3;
+$auxillary-light-8: #f8f8f8;

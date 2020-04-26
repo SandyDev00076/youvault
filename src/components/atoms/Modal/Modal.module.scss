@@ -1,0 +1,48 @@
+@use '../../../styles/variables' as *;
+
+.modalWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid $auxillary-light-2;
+  background-color: white;
+}
+
+.modalHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modalHeadingText {
+  color: $auxillary-light-4;
+  font-size: 20px;
+  margin: 0;
+}
+
+.closeBtn {
+  border: none;
+  font-size: 24px;
+  color: $auxillary-light-4;
+  background-color: white;
+  cursor: pointer;
+  &:hover {
+    color: $auxillary-light-2;
+  }
+  &:focus {
+    outline: none;
+  }
+}

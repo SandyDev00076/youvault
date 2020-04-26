@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Link from "../atoms/Link";
 import { useHistory } from "react-router-dom";
@@ -6,6 +6,7 @@ import ContextMenu, { ContextMenuOption } from "../ContextMenu";
 import useContextMenu from "../../hooks/useContextMenu";
 
 import css from "./Folder.module.scss";
+import MoveTo from "../Popups/Move";
 
 const Folder = ({ folder }) => {
   const history = useHistory();
@@ -16,6 +17,7 @@ const Folder = ({ folder }) => {
     openContextMenu,
     closeContextMenu,
   } = useContextMenu();
+  const [movePopup, openMovePopup] = useState(() => false);
 
   return (
     <>
@@ -45,8 +47,7 @@ const Folder = ({ folder }) => {
             icon="cut"
             option="Move"
             onSelect={() => {
-              // TODO: Add modal for moving the folder
-              console.log("moving the folder");
+              openMovePopup(true);
             }}
           />
           <ContextMenuOption
@@ -59,6 +60,8 @@ const Folder = ({ folder }) => {
           />
         </ContextMenu>
       )}
+      {/* Popups */}
+      {movePopup && <MoveTo handleClose={() => openMovePopup(false)} />}
     </>
   );
 };

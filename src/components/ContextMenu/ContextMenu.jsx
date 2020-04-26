@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Backdrop from "../Backdrop";
 
 import css from "./ContextMenu.module.scss";
-import Backdrop from "../Backdrop";
 
 export const ContextMenuOption = ({ icon, option, onSelect }) => {
   return (

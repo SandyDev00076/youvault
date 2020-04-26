@@ -3,11 +3,11 @@
 .contextMenu {
   position: absolute;
   background-color: white;
-  border: 1px solid $primary-light-2;
-  border-radius: 0 5px 5px 5px;
+  border: 1px solid $auxillary-light-2;
+  border-radius: 0 8px 8px 8px;
   max-width: 180px;
   overflow: hidden;
-  box-shadow: 1px 1px 3px $primary-light;
+  box-shadow: 1px 1px 3px $auxillary-light;
 }
 
 .contextMenuOption {
@@ -15,33 +15,33 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: $primary;
-  background-color: $primary-light-6;
+  color: $auxillary;
+  background-color: $auxillary-light-8;
   padding: 8px 5px;
   user-select: none;
   font-size: 14px;
 
   &:hover {
-    background-color: $primary-light-5;
+    background-color: $auxillary-light-6;
   }
 }
 
 .optionIcon {
   width: 35px;
   text-align: center;
-  color: $primary-light;
+  color: $auxillary-light;
 }
 
 .option {
 }
 
 .title {
-  color: $primary-light-2;
+  color: $auxillary-light-2;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid $primary-light-2;
+  border-bottom: 1px solid $auxillary-light-2;
   cursor: default;
   font-size: 14px;
   font-weight: bold;
