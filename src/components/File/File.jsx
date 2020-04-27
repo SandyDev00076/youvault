@@ -7,6 +7,8 @@ import ContextMenu, { ContextMenuOption } from "../ContextMenu";
 import useContextMenu from "../../hooks/useContextMenu";
 
 import css from "./File.module.scss";
+import MoveTo from "../Popups/Move";
+import Delete from "../Popups/Delete";
 
 // Helper functions
 function openInNewTab(url) {
@@ -131,10 +133,13 @@ const File = ({ file }) => {
     openContextMenu,
     closeContextMenu,
   } = useContextMenu();
+  const [movePopup, openMovePopup] = useState(() => false);
+  const [deletePopup, openDeletePopup] = useState(() => false);
 
   return (
-    <div onContextMenu={openContextMenu}>
-      {getFile(file)}
+    <>
+      <div onContextMenu={openContextMenu}>{getFile(file)}</div>
+      {/* Context Menu for files */}
       {showMenu && (
         <ContextMenu
           x={xCoord}
@@ -147,21 +152,26 @@ const File = ({ file }) => {
             icon="cut"
             option="Move"
             onSelect={() => {
-              // TODO: Add modal for moving the file
-              console.log("moving the file");
+              openMovePopup();
             }}
           />
           <ContextMenuOption
             icon="trash"
             option="Delete"
             onSelect={() => {
-              // TODO: Add logic for deleting a file
-              console.log("deleting the file");
+              openDeletePopup(true);
             }}
           />
         </ContextMenu>
       )}
-    </div>
+      {/* Popups */}
+      {movePopup && (
+        <MoveTo item={file} handleClose={() => openMovePopup(false)} />
+      )}
+      {deletePopup && (
+        <Delete item={file} handleClose={() => openDeletePopup(false)} />
+      )}
+    </>
   );
 };
 

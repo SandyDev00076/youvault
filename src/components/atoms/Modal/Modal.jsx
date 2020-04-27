@@ -17,6 +17,10 @@ export const ModalHeading = ({ children, showClose = false, onClose }) => {
   );
 };
 
+export const ModalButtons = ({ children }) => {
+  return <div className={css.modalButtons}>{children}</div>;
+};
+
 const Modal = ({ children }) => {
   return (
     <Portal>
