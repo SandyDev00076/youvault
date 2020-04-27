@@ -5,10 +5,10 @@ import yt from "youtube-thumbnail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ContextMenu, { ContextMenuOption } from "../ContextMenu";
 import useContextMenu from "../../hooks/useContextMenu";
-
-import css from "./File.module.scss";
 import MoveTo from "../Popups/Move";
 import Delete from "../Popups/Delete";
+
+import css from "./File.module.scss";
 
 // Helper functions
 function openInNewTab(url) {
