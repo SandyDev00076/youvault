@@ -152,7 +152,7 @@ const File = ({ file }) => {
             icon="cut"
             option="Move"
             onSelect={() => {
-              openMovePopup();
+              openMovePopup(true);
             }}
           />
           <ContextMenuOption
