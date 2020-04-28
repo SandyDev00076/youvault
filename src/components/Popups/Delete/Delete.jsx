@@ -1,6 +1,6 @@
 import React from "react";
 
-import Modal, { ModalHeading, ModalButtons } from "../../atoms/Modal/Modal";
+import Modal, { ModalHeading, ModalButtons } from "../../atoms/Modal";
 import Button from "../../atoms/Button/Button";
 
 import css from "./Delete.module.scss";

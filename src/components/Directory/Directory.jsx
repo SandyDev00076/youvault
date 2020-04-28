@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
 import useFolderDetails from "../../hooks/useFolderDetails";
-import Link from "../atoms/Link";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import File from "../File";
 import TopBar from "./TopBar";
 import EmptyState from "./EmptyState";
+import Folder from "../Folder";
+import NewFolder from "../Popups/NewFolder";
 
 import css from "./Directory.module.scss";
-import Folder from "../Folder";
 
 /* Filters files based on type */
 const FileFilters = ({ fileTypes = [], onFilterChange }) => {
@@ -39,6 +39,8 @@ const FileFilters = ({ fileTypes = [], onFilterChange }) => {
 
 /* Content component for Directory */
 const Content = ({ files, folders, fileTypes, onFilterChange }) => {
+  const [newFolderPopup, setNewFolderPopup] = useState(() => false);
+
   if (files.length === 0 && folders.length === 0) return <EmptyState />;
 
   return (
@@ -51,7 +53,10 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
               <FontAwesomeIcon icon="folder" style={{ marginRight: "10px" }} />
               Folders
             </h2>
-            <button className={css.addFolder}>
+            <button
+              className={css.addFolder}
+              onClick={() => setNewFolderPopup(true)}
+            >
               <FontAwesomeIcon icon="plus" style={{ marginRight: "5px" }} />
               Add
             </button>
@@ -91,6 +96,10 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
             ))}
           </div>
         </section>
+      )}
+      {/* Popups */}
+      {newFolderPopup && (
+        <NewFolder handleClose={() => setNewFolderPopup(false)} />
       )}
     </>
   );

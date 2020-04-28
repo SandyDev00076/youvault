@@ -1,1 +1,1 @@
-export { default } from "./Modal";
+export { default, ModalHeading, ModalButtons } from "./Modal";

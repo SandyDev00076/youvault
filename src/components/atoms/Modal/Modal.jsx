@@ -1,8 +1,9 @@
 import React from "react";
 
-import css from "./Modal.module.scss";
 import Portal from "../Portal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import css from "./Modal.module.scss";
 
 export const ModalHeading = ({ children, showClose = false, onClose }) => {
   return (

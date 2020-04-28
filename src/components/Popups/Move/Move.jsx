@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import Modal, { ModalHeading, ModalButtons } from "../../atoms/Modal/Modal";
-import FolderField from "../../FolderField/FolderField";
+import Modal, { ModalHeading, ModalButtons } from "../../atoms/Modal";
+import FolderField from "../../FolderField";
 import Label from "../../atoms/Label";
 import Button from "../../atoms/Button/Button";
 
