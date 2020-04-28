@@ -5,9 +5,15 @@ import Backdrop from "../Backdrop";
 
 import css from "./ContextMenu.module.scss";
 
-export const ContextMenuOption = ({ icon, option, onSelect }) => {
+export const ContextMenuOption = ({ icon, option, onSelect, handleClose }) => {
   return (
-    <div className={css.contextMenuOption} onClick={onSelect}>
+    <div
+      className={css.contextMenuOption}
+      onClick={() => {
+        onSelect();
+        handleClose();
+      }}
+    >
       <div className={css.optionIcon}>
         <FontAwesomeIcon icon={icon} />
       </div>
@@ -28,7 +34,9 @@ const ContextMenu = ({ children, x, y, handleClose, title = "" }) => {
       <Backdrop onBackdropClick={handleClose} />
       <div className={css.contextMenu} style={menuPosition}>
         {title && <div className={css.title}>{title}</div>}
-        {children}
+        {React.Children.map(children, (child) =>
+          React.cloneElement(child, { handleClose }, null)
+        )}
       </div>
     </>
   );
