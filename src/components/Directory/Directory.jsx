@@ -10,6 +10,7 @@ import Folder from "../Folder";
 import NewFolder from "../Popups/NewFolder";
 
 import css from "./Directory.module.scss";
+import Alert from "../Alert";
 
 /* Filters files based on type */
 const FileFilters = ({ fileTypes = [], onFilterChange }) => {

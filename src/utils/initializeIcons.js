@@ -24,6 +24,7 @@ import {
   faCut,
   faArrowRight,
   faCircleNotch,
+  faCheckCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 function initializeIcons() {
@@ -51,7 +52,8 @@ function initializeIcons() {
     faFolderOpen,
     faCut,
     faArrowRight,
-    faCircleNotch
+    faCircleNotch,
+    faCheckCircle
   );
 }
 
