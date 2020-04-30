@@ -8,10 +8,9 @@ import TopBar from "./TopBar";
 import EmptyState from "./EmptyState";
 import Folder from "../Folder";
 import NewFolder from "../Popups/NewFolder";
+import NewFile from "../Popups/NewFile";
 
 import css from "./Directory.module.scss";
-import Alert from "../Alert";
-import NewFile from "../Popups/NewFile";
 
 /* Filters files based on type */
 const FileFilters = ({ fileTypes = [], onFilterChange }) => {
