@@ -11,6 +11,7 @@ import NewFolder from "../Popups/NewFolder";
 
 import css from "./Directory.module.scss";
 import Alert from "../Alert";
+import NewFile from "../Popups/NewFile";
 
 /* Filters files based on type */
 const FileFilters = ({ fileTypes = [], onFilterChange }) => {
@@ -41,6 +42,7 @@ const FileFilters = ({ fileTypes = [], onFilterChange }) => {
 /* Content component for Directory */
 const Content = ({ files, folders, fileTypes, onFilterChange }) => {
   const [newFolderPopup, setNewFolderPopup] = useState(() => false);
+  const [newFilePopup, setNewFilePopup] = useState(() => false);
 
   if (files.length === 0 && folders.length === 0) return <EmptyState />;
 
@@ -86,7 +88,10 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
                 />
               )}
             </h2>
-            <button className={css.addFile}>
+            <button
+              className={css.addFile}
+              onClick={() => setNewFilePopup(true)}
+            >
               <FontAwesomeIcon icon="plus" style={{ marginRight: "5px" }} />
               Add
             </button>
@@ -102,6 +107,7 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
       {newFolderPopup && (
         <NewFolder handleClose={() => setNewFolderPopup(false)} />
       )}
+      {newFilePopup && <NewFile handleClose={() => setNewFilePopup(false)} />}
     </>
   );
 };
