@@ -8,10 +8,15 @@ const Button = ({
   icon = null,
   loading = false,
   children,
+  small = false,
+  className = "",
   ...props
 }) => {
   return (
-    <button className={css[type]} {...props}>
+    <button
+      className={`${css[type]} ${small && css.small} ${className}`}
+      {...props}
+    >
       {icon && !loading && (
         <FontAwesomeIcon icon={icon} className={css.btnIcon} />
       )}

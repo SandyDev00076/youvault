@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import Modal, { ModalHeading } from "../../atoms/Modal";
 import FolderField from "../../FolderField";
 import Label from "../../atoms/Label";
-
-import css from "./NewFile.module.scss";
 import fileTypeUtils from "../../../utils/fileTypes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Forms from "./Forms";
+import Button from "../../atoms/Button";
+
+import css from "./NewFile.module.scss";
 
 const FileOptions = ({ selected, onFileTypeChange }) => {
   return (
@@ -39,14 +41,35 @@ const NewFile = ({ handleClose }) => {
         Add File
       </ModalHeading>
       <Label name="Where?">
-        <FolderField />
-      </Label>
-      <Label name="File Type">
-        <FileOptions
-          selected={fileType}
-          onFileTypeChange={(type) => setFileType(type)}
+        {/* TODO: Make a request object for adding a file */}
+        <FolderField
+          onFolderSelect={(folder) =>
+            console.log(`A new file will be added at ${folder.name}`)
+          }
         />
       </Label>
+      {!fileType && (
+        <Label name="Which kind of file?">
+          <FileOptions
+            selected={fileType}
+            onFileTypeChange={(type) => setFileType(type)}
+          />
+        </Label>
+      )}
+      {fileType && (
+        <>
+          <Button
+            icon="arrow-left"
+            type="primary"
+            className={css.selectAnother}
+            small
+            onClick={() => setFileType(null)}
+          >
+            Select another type
+          </Button>
+          <Forms fileType={fileType} onClose={handleClose} />
+        </>
+      )}
     </Modal>
   );
 };

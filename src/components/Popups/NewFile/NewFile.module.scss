@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
 .fileType {
@@ -39,4 +39,9 @@
   color: $primary;
   font-size: 9px;
   user-select: none;
+}
+
+.selectAnother {
+  margin: 0 auto;
+  margin-bottom: 16px;
 }
