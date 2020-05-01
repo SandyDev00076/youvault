@@ -1,0 +1,42 @@
+@use '../../../styles/variables' as *;
+
+.fileTypes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 3px;
+}
+
+.fileType {
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: $primary-light-6;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-light-5;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: $primary-light-5;
+  }
+}
+
+.typeSelected {
+  background-color: $primary-light-5;
+}
+
+.optionIcon {
+  font-size: 24px;
+  color: $secondary;
+  margin-bottom: 3px;
+}
+
+.typeName {
+  text-transform: uppercase;
+  color: $primary;
+  font-size: 9px;
+  user-select: none;
+}
