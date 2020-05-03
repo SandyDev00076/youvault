@@ -27,6 +27,7 @@
   border: 1px solid $primary;
   top: 56px;
   max-height: 400px;
+  overflow: hidden;
 }
 
 .searchDropdownItem {
@@ -34,7 +35,6 @@
   padding: 10px;
   display: flex;
   align-items: center;
-  border-radius: 5px;
   color: $primary;
   background-color: $primary-light-6;
 

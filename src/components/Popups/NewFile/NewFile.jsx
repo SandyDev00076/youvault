@@ -13,22 +13,24 @@ import css from "./NewFile.module.scss";
 const FileOptions = ({ selected, onFileTypeChange }) => {
   return (
     <div className={css.fileTypes}>
-      {Object.keys(fileTypeUtils).map((fileType) => (
-        <div
-          tabIndex={0}
-          key={fileType}
-          className={`${css.fileType} ${
-            selected === fileType && css.typeSelected
-          }`}
-          onClick={() => onFileTypeChange(fileType)}
-        >
-          <FontAwesomeIcon
-            icon={fileTypeUtils[fileType].icon}
-            className={css.optionIcon}
-          />
-          <div className={css.typeName}>{fileType}</div>
-        </div>
-      ))}
+      {Object.keys(fileTypeUtils)
+        .filter((fileType) => fileType !== "folder")
+        .map((fileType) => (
+          <div
+            tabIndex={0}
+            key={fileType}
+            className={`${css.fileType} ${
+              selected === fileType && css.typeSelected
+            }`}
+            onClick={() => onFileTypeChange(fileType)}
+          >
+            <FontAwesomeIcon
+              icon={fileTypeUtils[fileType].icon}
+              className={css.optionIcon}
+            />
+            <div className={css.typeName}>{fileType}</div>
+          </div>
+        ))}
     </div>
   );
 };
