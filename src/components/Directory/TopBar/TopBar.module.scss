@@ -82,9 +82,15 @@
   border-radius: 5px;
   color: $primary-light-3;
   font-size: 14px;
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid $primary-light-1;
+  width: max-content;
+  padding: 6px;
+  max-width: 400px;
 }
 
 .infoIcon {
-  margin-right: 3px;
+  margin-right: 5px;
   font-size: 17px;
 }
