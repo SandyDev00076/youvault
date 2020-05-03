@@ -94,3 +94,19 @@
   margin-right: 5px;
   font-size: 17px;
 }
+
+@media screen and (max-width: 768px) {
+  .mainRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .folderLocation {
+    margin-bottom: 16px;
+  }
+
+  .folderDesc {
+    // width: 100%;
+    display: none;
+  }
+}

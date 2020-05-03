@@ -58,3 +58,13 @@
   color: $primary;
   font-size: 12px;
 }
+
+@media screen and (max-width: 768px) {
+  .file {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

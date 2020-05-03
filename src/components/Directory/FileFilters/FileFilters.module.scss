@@ -26,4 +26,9 @@
 .filterSelected {
   background-color: $primary-light;
   color: white;
+  cursor: default;
+
+  &:hover {
+    background-color: $primary-light;
+  }
 }
