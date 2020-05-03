@@ -1,25 +1,23 @@
-$primary: #a026ff; // vivid violet
+$primary: #5840ba; // vivid violet
 $secondary: #ff33d5; // flame
 $auxillary: #333; // very dark grey
 
 // light shades of primary
-$primary-light: #a733ff;
-$primary-light-1: #b352fd;
-$primary-light-2: #c375ff;
-$primary-light-3: #d5a2fc;
-$primary-light-4: #ddb5fc;
-$primary-light-5: #ead7fc;
-$primary-light-6: #fbf7ff;
-$primary-light-7: lighten($primary, 75%);
-$primary-light-8: lighten($primary, 78%);
+$primary-light: #7057d3;
+$primary-light-1: #7e68d6;
+$primary-light-2: #9986e6;
+$primary-light-3: #b7a7f8;
+$primary-light-4: #d7cdff;
+$primary-light-5: #e9e3ff;
+$primary-light-6: #f6f4fd;
 
 // dark shades of primary
-$primary-dark: darken($primary, 10%);
-$primary-dark-1: darken($primary, 20%);
-$primary-dark-2: darken($primary, 30%);
-$primary-dark-3: darken($primary, 40%);
-$primary-dark-4: darken($primary, 50%);
-$primary-dark-5: darken($primary, 60%);
+$primary-dark: #4932a7;
+$primary-dark-1: #37228b;
+$primary-dark-2: #27156b;
+$primary-dark-3: #1c0c57;
+$primary-dark-4: #150747;
+$primary-dark-5: #0e0335;
 
 // light shades of folder
 $secondary-light: lighten($secondary, 10%);
