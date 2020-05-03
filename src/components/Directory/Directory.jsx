@@ -49,14 +49,14 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
     <>
       {/* Folder section */}
       {folders.length !== 0 && (
-        <section className={css.folderSection}>
+        <section className={css.sectionStyle}>
           <div className={css.sectionHeader}>
             <h2>
               <FontAwesomeIcon icon="folder" style={{ marginRight: "10px" }} />
               Folders
             </h2>
             <button
-              className={css.addFolder}
+              className={css.sectionAddButton}
               onClick={() => setNewFolderPopup(true)}
             >
               <FontAwesomeIcon icon="plus" style={{ marginRight: "5px" }} />
@@ -72,7 +72,7 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
       )}
       {/* Files section */}
       {files.length !== 0 && (
-        <section className={css.fileSection}>
+        <section className={css.sectionStyle}>
           <div className={css.sectionHeader}>
             <h2 className={css.filesTitle}>
               <FontAwesomeIcon
@@ -88,7 +88,7 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
               )}
             </h2>
             <button
-              className={css.addFile}
+              className={css.sectionAddButton}
               onClick={() => setNewFilePopup(true)}
             >
               <FontAwesomeIcon icon="plus" style={{ marginRight: "5px" }} />

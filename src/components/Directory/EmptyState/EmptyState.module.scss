@@ -9,21 +9,21 @@
   font-size: 54px;
   text-shadow: 0 0 2px $primary;
   font-weight: bold;
-  color: $primary;
+  color: $white;
   margin-bottom: 5px;
 }
 
 .line2 {
   font-size: 24px;
-  color: $secondary-light;
+  color: $primary-light-2;
 
   & > .add {
-    color: $secondary-dark;
+    color: $primary-light-4;
     cursor: pointer;
 
     &:hover {
-      color: $secondary-dark-2;
-      text-decoration: underline $secondary-dark-2;
+      color: $white;
+      text-decoration: underline $white;
     }
   }
 }

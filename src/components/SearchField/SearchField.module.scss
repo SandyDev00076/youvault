@@ -5,19 +5,19 @@
 }
 
 .searchField {
-  border: 2px solid $primary-light-4;
-  background-color: $primary-light-6;
+  border: none;
+  border-left: 2px solid $primary-light-4;
+  background-color: $primary;
   font-family: inherit;
-  padding: 10px 16px;
+  padding: 5px 16px;
   font-size: 18px;
   width: 250px;
-  border-radius: 10px;
-  color: $primary-dark;
+  color: $white;
   margin: 5px 0;
 
   &:focus {
     outline: none;
-    border-color: $primary-light;
+    border-left-color: $primary-light-2;
   }
 }
 

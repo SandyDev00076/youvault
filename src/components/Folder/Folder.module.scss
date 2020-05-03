@@ -1,16 +1,24 @@
 @use '../../styles/variables' as *;
 
 .folder {
-  padding: 8px;
-  box-shadow: 0 0 2px $secondary-dark;
-  border-radius: 5px;
-  color: $secondary-dark;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid $primary-light-2;
+  color: $primary-light-5;
   font-size: 15px;
   text-align: center;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   &:hover {
     text-decoration: none;
-    color: white;
-    background-color: $secondary-light;
+    color: $white;
+    border-color: $white;
   }
+}
+
+.folderIcon {
+  margin-right: 10px;
 }
