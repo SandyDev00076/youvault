@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: $primary;
 }
 
 .appLogo {
@@ -13,12 +14,12 @@
 }
 
 .icon {
-  color: $primary-light-6;
+  color: $white;
 
   height: 40px;
   width: 40px;
   border-radius: 20px;
-  background-color: $primary;
+  background-color: $primary-light-1;
 
   display: flex;
   justify-content: center;
@@ -26,9 +27,9 @@
 }
 
 .appName {
-  color: $primary;
+  color: $white;
   font-weight: bold;
   font-size: 24px;
   margin-left: 10px;
-  text-shadow: 0 0 1px $primary-dark;
+  text-shadow: 0 0 1px $white;
 }

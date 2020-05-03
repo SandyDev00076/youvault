@@ -9,34 +9,9 @@ import EmptyState from "./EmptyState";
 import Folder from "../Folder";
 import NewFolder from "../Popups/NewFolder";
 import NewFile from "../Popups/NewFile";
+import FileFilters from "./FileFilters";
 
 import css from "./Directory.module.scss";
-
-/* Filters files based on type */
-const FileFilters = ({ fileTypes = [], onFilterChange }) => {
-  const [selectedType, selectType] = useState("");
-
-  function setFilter(filter) {
-    selectType(filter);
-    onFilterChange(filter);
-  }
-
-  return (
-    <div className={css.fileFilters}>
-      {fileTypes.map((filter) => (
-        <div
-          key={filter}
-          className={`${css.fileFilter} ${
-            filter === selectedType && css.filterSelected
-          }`}
-          onClick={() => setFilter(filter)}
-        >
-          {filter.length !== 0 ? filter : "All"}
-        </div>
-      ))}
-    </div>
-  );
-};
 
 /* Content component for Directory */
 const Content = ({ files, folders, fileTypes, onFilterChange }) => {
@@ -49,14 +24,14 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
     <>
       {/* Folder section */}
       {folders.length !== 0 && (
-        <section className={css.folderSection}>
+        <section className={css.sectionStyle}>
           <div className={css.sectionHeader}>
             <h2>
               <FontAwesomeIcon icon="folder" style={{ marginRight: "10px" }} />
               Folders
             </h2>
             <button
-              className={css.addFolder}
+              className={css.sectionAddButton}
               onClick={() => setNewFolderPopup(true)}
             >
               <FontAwesomeIcon icon="plus" style={{ marginRight: "5px" }} />
@@ -72,7 +47,7 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
       )}
       {/* Files section */}
       {files.length !== 0 && (
-        <section className={css.fileSection}>
+        <section className={css.sectionStyle}>
           <div className={css.sectionHeader}>
             <h2 className={css.filesTitle}>
               <FontAwesomeIcon
@@ -88,7 +63,7 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
               )}
             </h2>
             <button
-              className={css.addFile}
+              className={css.sectionAddButton}
               onClick={() => setNewFilePopup(true)}
             >
               <FontAwesomeIcon icon="plus" style={{ marginRight: "5px" }} />

@@ -2,28 +2,19 @@
 
 .file {
   padding: 14px;
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   align-items: flex-start;
-  border: 1px solid $primary-light-5;
   cursor: pointer;
+  background-color: $primary-light-6;
+  transition: transform 0.3s;
 
   &:hover {
-    background-color: $primary-light-1;
-
-    .fileType {
-      color: white;
-      border-bottom-color: white;
-    }
-
-    .fileName,
-    .fileDesc {
-      color: white;
-    }
+    background-color: $white;
+    transform: translateY(-5px);
 
     .fileImage {
       opacity: 1;
-      box-shadow: 0 0 2px white;
     }
   }
 }
@@ -32,8 +23,8 @@
   width: 100px;
   height: 75px;
   margin-right: 10px;
-  border-radius: 10px;
-  opacity: 0.7;
+  border-radius: 8px;
+  opacity: 0.8;
 }
 
 .fileType {
@@ -41,8 +32,8 @@
   align-items: center;
   padding-bottom: 3px;
   margin-bottom: 3px;
-  color: $primary-light;
-  border-bottom: 1px solid $primary-light-1;
+  color: $primary-light-1;
+  border-bottom: 1px solid $primary-light-2;
   width: max-content;
 }
 
@@ -64,6 +55,16 @@
 }
 
 .fileDesc {
-  color: $primary-light;
+  color: $primary;
   font-size: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .file {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
 }

@@ -8,6 +8,7 @@ import useContextMenu from "../../hooks/useContextMenu";
 import css from "./Folder.module.scss";
 import MoveTo from "../Popups/Move";
 import Delete from "../Popups/Delete";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Folder = ({ folder }) => {
   const history = useHistory();
@@ -28,6 +29,7 @@ const Folder = ({ folder }) => {
         className={css.folder}
         onContextMenu={openContextMenu}
       >
+        <FontAwesomeIcon icon="folder" className={css.folderIcon} />
         {folder.name}
       </Link>
       {/* Context Menu for Folders */}

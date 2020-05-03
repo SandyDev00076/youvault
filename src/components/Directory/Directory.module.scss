@@ -2,12 +2,13 @@
 
 .directory {
   padding: 16px 32px;
+  background-color: $primary;
+  flex: 1;
 }
 
 .sectionStyle {
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 32px;
+  background-color: $primary;
+  margin-bottom: 48px;
 }
 
 .sectionHeader {
@@ -16,11 +17,11 @@
   align-items: center;
   justify-content: space-between;
   cursor: default;
+  color: $primary-light-3;
 
   & > h2 {
-    text-transform: uppercase;
     margin: 0;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: bold;
   }
 }
@@ -36,40 +37,19 @@
 
   &:focus {
     outline: none;
+    color: $white;
   }
-}
 
-.folderSection {
-  @extend .sectionStyle;
-  background-color: $secondary-light-6;
-  color: $secondary;
+  &:hover {
+    color: $white;
+  }
 }
 
 .folders {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   align-items: flex-start;
-}
-
-.addFolder {
-  @extend .sectionAddButton;
-  &:hover {
-    color: $secondary-dark;
-  }
-}
-
-.fileSection {
-  @extend .sectionStyle;
-  background-color: $primary-light-6;
-  color: $primary;
-}
-
-.addFile {
-  @extend .sectionAddButton;
-  &:hover {
-    color: $primary-dark;
-  }
 }
 
 .files {
@@ -82,30 +62,4 @@
 .filesTitle {
   display: flex;
   align-items: center;
-}
-
-.fileFilters {
-  display: flex;
-  align-items: center;
-  margin-left: 20px;
-}
-
-.fileFilter {
-  font-size: 8px;
-  padding: 3px 10px;
-  border-radius: 10px;
-  border: 1px solid $primary;
-  background-color: $primary-light-6;
-  margin-right: 7px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: $primary-light;
-    color: white;
-  }
-}
-
-.filterSelected {
-  background-color: $primary-light;
-  color: white;
 }

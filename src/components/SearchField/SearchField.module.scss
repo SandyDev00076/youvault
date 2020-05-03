@@ -5,19 +5,19 @@
 }
 
 .searchField {
-  border: 2px solid $primary-light-4;
-  background-color: $primary-light-6;
+  border: none;
+  border-left: 2px solid $primary-light-4;
+  background-color: $primary;
   font-family: inherit;
-  padding: 10px 16px;
+  padding: 5px 16px;
   font-size: 18px;
   width: 250px;
-  border-radius: 10px;
-  color: $primary-dark;
+  color: $white;
   margin: 5px 0;
 
   &:focus {
     outline: none;
-    border-color: $primary-light;
+    border-left-color: $primary-light-2;
   }
 }
 
@@ -27,6 +27,7 @@
   border: 1px solid $primary;
   top: 56px;
   max-height: 400px;
+  overflow: hidden;
 }
 
 .searchDropdownItem {
@@ -34,7 +35,6 @@
   padding: 10px;
   display: flex;
   align-items: center;
-  border-radius: 5px;
   color: $primary;
   background-color: $primary-light-6;
 

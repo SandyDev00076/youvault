@@ -11,14 +11,13 @@
   width: 100vw;
   height: 100vh;
 
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal {
   padding: 20px;
   border-radius: 10px;
-  border: 2px solid $auxillary-light-2;
-  background-color: white;
+  background-color: $white;
 }
 
 .modalHeading {
