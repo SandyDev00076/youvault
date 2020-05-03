@@ -59,10 +59,7 @@ const TopBar = ({ folderName, path, description }) => {
       <div className={css.about}>
         {description !== "--" && (
           <div className={css.folderDesc}>
-            <strong className={css.aboutText}>
-              <FontAwesomeIcon icon="info-circle" className={css.infoIcon} />
-              About :{" "}
-            </strong>{" "}
+            <FontAwesomeIcon icon="info-circle" className={css.infoIcon} />{" "}
             {description}
           </div>
         )}
