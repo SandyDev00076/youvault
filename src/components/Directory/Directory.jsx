@@ -10,6 +10,7 @@ import Folder from "../Folder";
 import NewFolder from "../Popups/NewFolder";
 import NewFile from "../Popups/NewFile";
 import FileFilters from "./FileFilters";
+import HeaderLayout from "../../layouts/HeaderLayout";
 
 import css from "./Directory.module.scss";
 
@@ -99,7 +100,7 @@ const Directory = () => {
     fileTypes,
   } = useFolderDetails(id ?? "/", { fileType: fileFilter });
   return (
-    <section className={css.directory}>
+    <HeaderLayout componentClass={css.directory}>
       <TopBar folderName={folderName} path={path} description={description} />
       <Content
         files={files}
@@ -107,7 +108,7 @@ const Directory = () => {
         fileTypes={fileTypes}
         onFilterChange={(filter) => setFileFilter(filter)}
       />
-    </section>
+    </HeaderLayout>
   );
 };
 
