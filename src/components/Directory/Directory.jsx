@@ -50,12 +50,14 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
       {files.length !== 0 && (
         <section className={css.sectionStyle}>
           <div className={css.sectionHeader}>
-            <h2 className={css.filesTitle}>
-              <FontAwesomeIcon
-                icon="photo-video"
-                style={{ marginRight: "10px" }}
-              />
-              Files
+            <h2 className={css.filesHeader}>
+              <div className={css.filesTitle}>
+                <FontAwesomeIcon
+                  icon="photo-video"
+                  style={{ marginRight: "10px" }}
+                />
+                Files
+              </div>
               {fileTypes.length > 1 && (
                 <FileFilters
                   fileTypes={fileTypes}
