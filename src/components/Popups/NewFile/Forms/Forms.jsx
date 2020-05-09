@@ -22,7 +22,9 @@ const VideoForm = ({ onClose }) => {
       </Label>
       <ModalButtons>
         <Button type="primary">Add Video</Button>
-        <Button onClick={onClose}>Cancel</Button>
+        <Button onClick={onClose} icon="times">
+          Cancel
+        </Button>
       </ModalButtons>
     </form>
   );
@@ -42,7 +44,9 @@ const ArticleForm = ({ onClose }) => {
       </Label>
       <ModalButtons>
         <Button type="primary">Add Article</Button>
-        <Button onClick={onClose}>Cancel</Button>
+        <Button onClick={onClose} icon="times">
+          Cancel
+        </Button>
       </ModalButtons>
     </form>
   );
@@ -62,7 +66,9 @@ const WebsiteForm = ({ onClose }) => {
       </Label>
       <ModalButtons>
         <Button type="primary">Add Website</Button>
-        <Button onClick={onClose}>Cancel</Button>
+        <Button onClick={onClose} icon="times">
+          Cancel
+        </Button>
       </ModalButtons>
     </form>
   );
