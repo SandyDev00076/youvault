@@ -43,15 +43,15 @@
 
 .secondary {
   @extend .btn;
-  background-color: $auxillary-light-6;
-  color: $auxillary;
+  border: 1px solid $primary;
+  color: $primary;
 
   &:hover {
-    background-color: $auxillary-light-5;
+    background-color: $primary-light-5;
   }
 
   &:disabled {
-    background-color: $auxillary-light-4;
+    background-color: $primary-light-4;
     cursor: default;
   }
 }
