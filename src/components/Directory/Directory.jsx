@@ -10,6 +10,7 @@ import Folder from "../Folder";
 import NewFolder from "../Popups/NewFolder";
 import NewFile from "../Popups/NewFile";
 import FileFilters from "./FileFilters";
+import HeaderLayout from "../../layouts/HeaderLayout";
 
 import css from "./Directory.module.scss";
 
@@ -49,12 +50,14 @@ const Content = ({ files, folders, fileTypes, onFilterChange }) => {
       {files.length !== 0 && (
         <section className={css.sectionStyle}>
           <div className={css.sectionHeader}>
-            <h2 className={css.filesTitle}>
-              <FontAwesomeIcon
-                icon="photo-video"
-                style={{ marginRight: "10px" }}
-              />
-              Files
+            <h2 className={css.filesHeader}>
+              <div className={css.filesTitle}>
+                <FontAwesomeIcon
+                  icon="photo-video"
+                  style={{ marginRight: "10px" }}
+                />
+                Files
+              </div>
               {fileTypes.length > 1 && (
                 <FileFilters
                   fileTypes={fileTypes}
@@ -99,7 +102,7 @@ const Directory = () => {
     fileTypes,
   } = useFolderDetails(id ?? "/", { fileType: fileFilter });
   return (
-    <section className={css.directory}>
+    <HeaderLayout componentClass={css.directory}>
       <TopBar folderName={folderName} path={path} description={description} />
       <Content
         files={files}
@@ -107,7 +110,7 @@ const Directory = () => {
         fileTypes={fileTypes}
         onFilterChange={(filter) => setFileFilter(filter)}
       />
-    </section>
+    </HeaderLayout>
   );
 };
 
